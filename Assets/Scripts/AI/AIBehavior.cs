@@ -26,6 +26,7 @@ public class AIBehavior : MonoBehaviour {
     public AIStats stats;
     public Transform target;
     public int currentHealth;
+    public bool alerted = false;
     #endregion 
 
     // Use this for initialization

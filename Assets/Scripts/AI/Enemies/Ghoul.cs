@@ -4,10 +4,40 @@ using UnityEngine;
 
 public class Ghoul : Enemy {
 
-    bool immune;
+    [SerializeField]
+    bool immune = true;
 	
     //Override TakeDamage to check if Immune or not
+    public override void TakeDamage(int damage)
+    {
+        if (immune)
+        {
+            return;
+        }
+        else
+        {
+            base.TakeDamage(damage);
+        }
+    }
+
+    IEnumerator ImmuneTimer()
+    {
+        immune = false;
+        float timer = 3f;
+        while (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            yield return null;
+        }
+        immune = true;
+    }
     
-    //Toggle immune on and off when attackin
-       
+    //Toggle immune on and off when attacking
+    public override void Attack()
+    {
+        base.Attack();
+        immune = false;
+
+    }
+    
 }

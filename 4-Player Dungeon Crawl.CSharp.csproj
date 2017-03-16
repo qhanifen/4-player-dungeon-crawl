@@ -82,11 +82,11 @@
     <Reference Include="Pathfinding.ClipperLib">
       <HintPath>Assets\AstarPathfindingProject\Plugins\Clipper\Pathfinding.ClipperLib.dll</HintPath>
     </Reference>
-    <Reference Include="Pathfinding.Poly2Tri">
-      <HintPath>Assets\AstarPathfindingProject\Plugins\Poly2Tri\Pathfinding.Poly2Tri.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>Assets\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Poly2Tri">
+      <HintPath>Assets\AstarPathfindingProject\Plugins\Poly2Tri\Pathfinding.Poly2Tri.dll</HintPath>
     </Reference>
     <Reference Include="Rewired_Core">
       <HintPath>Assets\Rewired\Internal\Libraries\Runtime\Rewired_Core.dll</HintPath>
@@ -323,6 +323,7 @@
     <Compile Include="Assets\Scripts\AI\AIStats.cs" />
     <Compile Include="Assets\Scripts\AI\AITransition.cs" />
     <Compile Include="Assets\Scripts\AI\Actions\Scripts\PatrolAction.cs" />
+    <Compile Include="Assets\Scripts\AI\Conditions\Scripts\Alert.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Enemy.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Ghoul.cs" />
     <Compile Include="Assets\Scripts\AI\Enemies\Goblin.cs" />

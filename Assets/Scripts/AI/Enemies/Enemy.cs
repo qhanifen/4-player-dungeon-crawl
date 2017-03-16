@@ -66,7 +66,7 @@ public class Enemy : AIBehavior, ITargetable, IDamageable
 
     #region IDamageable implementation
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, currentHealth);
         if (currentHealth <= 0)

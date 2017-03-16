@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcbfa7e6218def047a65c9d7e3226dd5, type: 3}
+  m_Name: Goblin Patrol State
+  m_EditorClassIdentifier: 
+  actions:
+  - {fileID: 0}
+  transitions:
+  - {fileID: 11400000, guid: d3627f34cc4339344b2e6f3fca87ba99, type: 2}
+  sceneGizmoColor: {r: 0.07586217, g: 1, b: 0, a: 1}
