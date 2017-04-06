@@ -305,7 +305,7 @@ namespace Kunai
 				{
 					particlesList[i].GetComponent<ParticleSystem>().startSize = particleSizes[j] * scaleFloat;
 					particlesList[i].GetComponent<ParticleSystem>().startSpeed = particleSpeeds[j] * scaleFloat;
-					particlesList[i].GetComponent<ParticleSystem>().gravityModifier = particleGravity[j] * scaleFloat;
+					particlesList[i].GetComponent<ParticleSystem>().gravityModifier = particleGravity[j] * scaleFloat;                    
 					particlesList[i].transform.localScale = (particleScales[j] * scaleFloat);
 					j++;
 				}
