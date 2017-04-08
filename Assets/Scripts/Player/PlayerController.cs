@@ -7,16 +7,32 @@ public class PlayerController : MonoBehaviour
 	public float runSpeed = 10.0f;
 	public float rotationSpeed = 8.0f;
 
-	Hero hero;
-	public Player player;
+    #region Input Variables
+    public Player player;
+	public Hero hero;
+    public Animator anim;
+    public bool active = false;
 
 	public delegate void InteractEvent();
 	public event InteractEvent Interact;
+    #endregion 
+
+    public PlayerController(int ID)
+    {
+        player = ReInput.players.GetPlayer(ID);
+        active = true;
+    }
+
+    public void SetHero(Hero _hero)
+    {
+        hero = _hero;
+    }
 
 	// Use this for initialization
 	void Start () 
 	{
 		hero = this.GetComponent<Hero>();
+        anim = hero.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -37,6 +53,7 @@ public class PlayerController : MonoBehaviour
             if (player.GetButton("Fire"))
             {
                 hero.Fire();
+                anim.SetTrigger("Attack");
             }
 
             if (player.GetButtonDown("Interact") && Interact != null)

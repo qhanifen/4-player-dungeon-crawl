@@ -9,11 +9,15 @@ public class StateController : MonoBehaviour {
 
     public Dictionary<string, AIState> states;
     public AIState currentState;
+    public AIState remainState;
+
+    [HideInInspector] public float stateTimeElapsed;
     
     //Call in AIBehavior to initialize StateMachine
     public void Initialize(AIBehavior aiAgent)
     {
-        AI = aiAgent;       
+        AI = aiAgent;
+        aiActive = true;
 	}
 	
 	// Update called through AI Update Machine Event
@@ -27,7 +31,22 @@ public class StateController : MonoBehaviour {
 
     public void ToNextState(AIState nextState)
     {
-        currentState = nextState;
+        if (nextState != remainState)
+        {
+            currentState = nextState;
+            OnExitState();
+        }
+    }
+
+    public bool CheckIfCounDownElapsed(float timer)
+    {
+        stateTimeElapsed += Time.deltaTime;
+        return (stateTimeElapsed >= timer);        
+    }
+
+    private void OnExitState()
+    {
+        stateTimeElapsed = 0;
     }
 
     void OnDrawGizmos()
@@ -35,7 +54,7 @@ public class StateController : MonoBehaviour {
         if(currentState != null)
         {
             Gizmos.color = currentState.sceneGizmoColor;
-            Gizmos.DrawWireSphere(transform.position, 5.0f);
+            Gizmos.DrawWireSphere(transform.position, 1.0f);
         }
     }
 }

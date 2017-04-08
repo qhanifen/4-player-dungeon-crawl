@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(StateController))]
 public class AIBehavior : MonoBehaviour {
 
     #region AI Properties
@@ -33,6 +34,7 @@ public class AIBehavior : MonoBehaviour {
     void Start () {
         seeker = GetComponent<Seeker>();
         controller = GetComponent<StateController>();
+        controller.Initialize(this);
         anim = GetComponent<Animator>();
 
         currentHealth = stats.health;
@@ -79,5 +81,14 @@ public class AIBehavior : MonoBehaviour {
     public void UpdateTarget()
     {        
     }
+    #endregion
+
+    #region Combat Methods
+
+    public virtual void Attack()
+    {
+        return;
+    }
+
     #endregion
 }

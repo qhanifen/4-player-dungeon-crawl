@@ -23,10 +23,10 @@ public class AIState : ScriptableObject {
     {
         for(int i=0; i<transitions.Length; i++)
         {
-            if(transitions[i].condition == true)
+            if (transitions[i].condition == true)
             {
-
+                controller.ToNextState(transitions[i].trueState);
             }
         }
-    }   
+    }       
 }

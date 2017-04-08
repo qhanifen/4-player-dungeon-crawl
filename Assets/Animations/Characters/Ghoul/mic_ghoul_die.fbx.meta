@@ -127,7 +127,7 @@ ModelImporter:
     400116: thumb_l_02
     400118: thumb_r_01
     400120: thumb_r_02
-    7400000: Take 001
+    7400000: Die
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -151,7 +151,157 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Die
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 24
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: root
+        weight: 1
+      - path: root/butt_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/eye_l_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/eye_r_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/eyebrow_l
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/eyebrow_r
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/face_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_back_l_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_back_l_01/hair_back_l_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_back_l_01/hair_back_l_02/hair_back_l_03
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_back_r_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_back_r_01/hair_back_r_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_back_r_01/hair_back_r_02/hair_back_r_03
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_ghoul_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_ghoul_01/hair_ghoul_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_l_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_l_01/hair_l_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_r_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/hair_r_01/hair_r_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/head_ghoul/jaw
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/finger_01_l_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/finger_01_l_01/finger_01_l_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/finger_01_l_01/finger_01_l_02/finger_01_l_03
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/finger_02_l_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/finger_02_l_01/finger_02_l_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/finger_02_l_01/finger_02_l_02/finger_02_l_03
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/finger_03_l_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/finger_03_l_01/finger_03_l_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/finger_03_l_01/finger_03_l_02/finger_03_l_03
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/thumb_l_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/left_hand_ghoul/thumb_l_01/thumb_l_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/rope_l_back_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/rope_l_back_01/rope_l_back_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/rope_l_front_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/left_shoulder_ghoul/left_arm_ghoul/rope_l_front_01/rope_l_front_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/mouth_corner_l
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/mouth_corner_r
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/finger_01_r_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/finger_01_r_01/finger_01_r_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/finger_01_r_01/finger_01_r_02/finger_01_r_03
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/finger_02_r_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/finger_02_r_01/finger_02_r_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/finger_02_r_01/finger_02_r_02/finger_02_r_03
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/finger_03_r_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/finger_03_r_01/finger_03_r_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/finger_03_r_01/finger_03_r_02/finger_03_r_03
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/thumb_r_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/right_hand_ghoul/thumb_r_01/thumb_r_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/rope_r_back_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/rope_r_back_01/rope_r_back_02
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/rope_r_front_01
+        weight: 1
+      - path: root/butt_ghoul/body_ghoul/right_shoulder_ghoul/right_arm_ghoul/rope_r_front_01/rope_r_front_02
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

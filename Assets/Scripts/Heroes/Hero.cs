@@ -17,11 +17,10 @@ public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
 
     public PlayerController controller;
 
-	public string heroName;
-	public int health = 100, maxHealth = 100;
+    public HeroStats stats;
 
-	public float meleeSpeed = 1.2f;
-	public float rangedFireRate = 0.4f;
+	public string heroName;
+	public int health = 100;	
 
 	private float timer = 0.0f;
 
@@ -39,7 +38,7 @@ public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
 	public void Fire()
 	{
 		timer += Time.fixedDeltaTime;
-		if(timer >= rangedFireRate)
+		if(timer >= stats.rangedFireRate)
 		{
 			timer = 0.0f;
 
@@ -99,7 +98,7 @@ public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
 
 	public void Heal (int healAmount)
 	{
-		health = Mathf.Clamp(health + healAmount, 0, maxHealth);
+		health = Mathf.Clamp(health + healAmount, 0, stats.maxHealth);
 	}
 
     public void OnUntargeted()

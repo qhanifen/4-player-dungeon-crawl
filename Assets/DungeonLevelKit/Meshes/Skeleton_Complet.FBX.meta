@@ -1,0 +1,125 @@
+fileFormatVersion: 2
+guid: dccb1328660ca49abb287bd96974bf65
+timeCreated: 1429627609
+licenseType: Store
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Skeletom_Arm
+    100002: Skeletom_Arm001
+    100004: Skeletom_forearm
+    100006: Skeletom_forearm001
+    100008: Skeletom_Tibia
+    100010: Skeletom_Tibia001
+    100012: //RootNode
+    100014: Skeleton_Femur
+    100016: Skeleton_Femur001
+    100018: Skeleton_Hand
+    100020: Skeleton_Hand001
+    100022: Skull01
+    400000: Skeletom_Arm
+    400002: Skeletom_Arm001
+    400004: Skeletom_forearm
+    400006: Skeletom_forearm001
+    400008: Skeletom_Tibia
+    400010: Skeletom_Tibia001
+    400012: //RootNode
+    400014: Skeleton_Femur
+    400016: Skeleton_Femur001
+    400018: Skeleton_Hand
+    400020: Skeleton_Hand001
+    400022: Skull01
+    2300000: Skeletom_Arm
+    2300002: Skeletom_Arm001
+    2300004: Skeletom_forearm
+    2300006: Skeletom_forearm001
+    2300008: Skeletom_Tibia
+    2300010: Skeletom_Tibia001
+    2300012: //RootNode
+    2300014: Skeleton_Femur
+    2300016: Skeleton_Femur001
+    2300018: Skeleton_Hand
+    2300020: Skeleton_Hand001
+    2300022: Skull01
+    3300000: Skeletom_Arm
+    3300002: Skeletom_Arm001
+    3300004: Skeletom_forearm
+    3300006: Skeletom_forearm001
+    3300008: Skeletom_Tibia
+    3300010: Skeletom_Tibia001
+    3300012: //RootNode
+    3300014: Skeleton_Femur
+    3300016: Skeleton_Femur001
+    3300018: Skeleton_Hand
+    3300020: Skeleton_Hand001
+    3300022: Skull01
+    4300000: Skeleton_Torso
+    4300002: Skeletom_Arm
+    4300004: Skeletom_forearm
+    4300006: Skeleton_Hand
+    4300008: Skeletom_Arm001
+    4300010: Skeletom_forearm001
+    4300012: Skeleton_Hand001
+    4300014: Skeleton_Femur001
+    4300016: Skeletom_Tibia001
+    4300018: Skeleton_Femur
+    4300020: Skeletom_Tibia
+    4300022: Skull01
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 2
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

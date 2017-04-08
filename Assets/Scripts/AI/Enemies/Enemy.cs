@@ -15,10 +15,6 @@ public class Enemy : AIBehavior, ITargetable, IDamageable
 
     public EnemyType enemyType;
 
-    #region AI States
-
-    #endregion
-
     //Old code, re
     /*
     switch(enemyType)
@@ -77,7 +73,8 @@ public class Enemy : AIBehavior, ITargetable, IDamageable
 
     public virtual void Die()
     {
-        //stateController.ToNextState();        
+        controller.aiActive = false;
+        anim.SetBool("Dead", true);
     }
 
     #endregion
@@ -94,7 +91,7 @@ public class Enemy : AIBehavior, ITargetable, IDamageable
 
     #region Combat Methods
 
-    public virtual void Attack()
+    public override void Attack()
     {
         anim.SetTrigger("Attack");
     }

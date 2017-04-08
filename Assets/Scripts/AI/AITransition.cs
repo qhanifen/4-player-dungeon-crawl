@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
 
-[CreateAssetMenu(menuName = "AI/AI Transition")]
-public class AITransition : ScriptableObject
+[Serializable]
+public class AITransition 
 {
     public AICondition condition;
     public AIState trueState;
-    public AIState falseState;	
+    public AIState falseState;
 }

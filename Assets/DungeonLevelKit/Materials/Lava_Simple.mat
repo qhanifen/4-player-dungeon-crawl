@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Lava_Simple
+  m_Shader: {fileID: 4800000, guid: c75efabe3782d704481a493da85eea7c, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: 23b368df983f5b24c9a0a21830568212, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _node_4:
+        m_Texture: {fileID: 2800000, guid: e077bd31d0de26a49b92f826eea537a6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Emission_power: 1
+    - _NoiseX: 0.442
+    - _NoiseY: 0.317
+    - _node_1786: 0.94
+    - _node_4491: 0
+    - _node_8525: 0
+    m_Colors:
+    - _Emission_Color: {r: 1, g: 1, b: 1, a: 1}
