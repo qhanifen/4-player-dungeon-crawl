@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Name: Imp Patrol State
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 2efffd8bfc1f2c245b65f08dafecf79e, type: 2}
   transitions:
   - condition: {fileID: 0}
     trueState: {fileID: 0}
     falseState: {fileID: 0}
-    remainInState: 0
   sceneGizmoColor: {r: 0.07586217, g: 1, b: 0, a: 1}

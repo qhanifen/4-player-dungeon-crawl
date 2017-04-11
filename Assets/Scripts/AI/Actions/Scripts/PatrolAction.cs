@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(menuName = "AI/AI Action/Patrol Action")]
+[CreateAssetMenu(menuName = "AI/Actions/Patrol Action")]
 public class PatrolAction : AIAction
 {
     public override void Act(StateController controller)

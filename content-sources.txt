@@ -1,14 +1,27 @@
 Heroes
 
-Fantasy Heroes Pack 01 1.3 by Mesh Tint - https://www.assetstore.unity3d.com/en/#!/content/37666
+	Fantasy Heroes Pack 01 1.3 by Mesh Tint - https://www.assetstore.unity3d.com/en/#!/content/37666
+
+	Mixamo Animations www.mixamo.com
 
 
-BitGem3D
+Enemies
 
-CUTE MICRO GHOUL GOBROT - https://shop.bitgem3d.com/collections/free-3d-models/products/low-poly-micro-ghoul-gobrot
+	CUTE MICRO GHOUL GOBROT from BitGem - https://shop.bitgem3d.com/collections/free-3d-models/products/low-poly-micro-ghoul-gobrot
 
-FREE ZOMBIE COMMONER - https://shop.bitgem3d.com/collections/free-3d-models/products/low-poly-zombie-commoner
+	FREE ZOMBIE COMMONER from BitGem - https://shop.bitgem3d.com/collections/free-3d-models/products/low-poly-zombie-commoner
 
-SKELETON ARCHER - https://shop.bitgem3d.com/collections/free-3d-models/products/low-poly-skeleton-archer
+	SKELETON ARCHER from BitGem - https://shop.bitgem3d.com/collections/free-3d-models/products/low-poly-skeleton-archer
 
-DEMON IMP - https://shop.bitgem3d.com/collections/free-3d-models/products/low-poly-demon-imp
+	DEMON IMP from BitGem - https://shop.bitgem3d.com/collections/free-3d-models/products/low-poly-demon-imp
+
+Level Assets
+
+	Dungeon Level Kit from Hedgehog Team - https://www.assetstore.unity3d.com/en/#!/content/35681
+
+Particles
+	
+
+Scripting Plugins
+
+	AStar Pathfinding Pro by Aron Granberg - https://arongranberg.com/astar/

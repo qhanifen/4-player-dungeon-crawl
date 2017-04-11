@@ -31,6 +31,7 @@ public class HeroEditor : Editor
 		rangedBulletPrefab_Prop = serializedObject.FindProperty("defaultShot");
 	}
 
+    /*
 	public override void OnInspectorGUI()
 	{
 		serializedObject.Update();
@@ -65,4 +66,5 @@ public class HeroEditor : Editor
 
 		serializedObject.ApplyModifiedProperties();
 	}
+    */
 }

@@ -6,15 +6,21 @@ using Rewired;
 public class GameManager : MonoSingletonPersistent<GameManager>
 {
     public List<PlayerController> playerControllers;
+    public List<Hero> heroes;
 
     private void Start()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            playerControllers.Add(new PlayerController(i));
-        }
+    {        
         ReInput.ControllerConnectedEvent += ReInput_ControllerConnectedEvent;
         ReInput.ControllerDisconnectedEvent += ReInput_ControllerDisconnectedEvent;
+    }
+
+    public void SpawnHeroes(Transform spawnPoint)
+    {
+        int spawnCount = playerControllers.Count;
+        foreach (PlayerController player in playerControllers)
+        {
+            //heroes.Add(Instantiate())
+        }
     }
 
     private void ReInput_ControllerConnectedEvent(ControllerStatusChangedEventArgs obj)

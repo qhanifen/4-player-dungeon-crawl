@@ -10,8 +10,6 @@ GameObject:
   - component: {fileID: 492818}
   - component: {fileID: 3347858}
   - component: {fileID: 2353106}
-  - component: {fileID: 11426512}
-  - component: {fileID: 11442348}
   - component: {fileID: 5490968}
   - component: {fileID: 13690422}
   m_Layer: 0
@@ -95,6 +93,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!23 &2353106
 MeshRenderer:
@@ -126,6 +125,7 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!33 &3300662
 MeshFilter:
@@ -156,40 +156,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &11426512
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 163578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56bc0d7af7d0dd0428f2edfb320b250d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerID: 0
-  runSpeed: 10
-  rotationSpeed: 8
---- !u!114 &11442348
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 163578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d099d203ee876d4ab5e35fb0aa212f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  heroType: 1
-  heroName: 
-  health: 100
-  maxHealth: 100
-  meleeSpeed: 1.2
-  rangedFireRate: 0.4
-  firePoint: {fileID: 415178}
-  defaultShot: {fileID: 11432682, guid: c2613b84ad397224aa589d5d3a43b70e, type: 2}
-  target: {fileID: 0}
 --- !u!136 &13690422
 CapsuleCollider:
   m_ObjectHideFlags: 1

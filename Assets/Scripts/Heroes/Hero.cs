@@ -18,6 +18,7 @@ public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
     public PlayerController controller;
 
     public HeroStats stats;
+    public HeroAbilities abilities;
 
 	public string heroName;
 	public int health = 100;	
@@ -35,10 +36,10 @@ public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
         controller = GetComponent<PlayerController>();
 	}
 
-	public void Fire()
+	public void Attack()
 	{
 		timer += Time.fixedDeltaTime;
-		if(timer >= stats.rangedFireRate)
+		if(timer >= abilities.basicAttack.attackRate)
 		{
 			timer = 0.0f;
 

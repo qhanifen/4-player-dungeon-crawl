@@ -10,6 +10,8 @@ public class StateController : MonoBehaviour {
     public Dictionary<string, AIState> states;
     public AIState currentState;
     public AIState remainState;
+    public AIState previousState;
+    public AIState[] anyStates;
 
     [HideInInspector] public float stateTimeElapsed;
     
@@ -26,6 +28,10 @@ public class StateController : MonoBehaviour {
         if (aiActive)
         {
             currentState.UpdateState(this);
+            for(int i = 0; i< anyStates.Length; i++)
+            {
+                anyStates[i].UpdateState(this);
+            }
         }
 	}
 

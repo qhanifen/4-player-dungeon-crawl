@@ -6,6 +6,6 @@ using UnityEngine;
 public class HeroStats : ScriptableObject
 {
     public int maxHealth;
-    public float meleeSpeed = 1.2f;
+    public float attackSpeed = 1.2f;
     public float rangedFireRate = 0.4f;
 }

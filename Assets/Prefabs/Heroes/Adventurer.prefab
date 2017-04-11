@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4619492051390352}
   - component: {fileID: 95294621262678548}
+  - component: {fileID: 114011742019425664}
+  - component: {fileID: 114825281171407750}
   m_Layer: 0
   m_Name: Adventurer
   m_TagString: Untagged
@@ -149,7 +151,7 @@ Animator:
   m_GameObject: {fileID: 1121980368644476}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: b280ad9530591c54081b6c0099923a49, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3d584d96f2d032846b10b1164596cc94, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -157,6 +159,43 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114011742019425664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121980368644476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167f9bb9a2a6725438791f2cf4a8de01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 5
+  rotationSpeed: 10
+  playerID: 0
+  hero: {fileID: 0}
+  anim: {fileID: 0}
+  active: 1
+--- !u!114 &114825281171407750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121980368644476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58a2a4f035570334cb81e84100913dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heroType: 0
+  controller: {fileID: 0}
+  stats: {fileID: 11400000, guid: 2270df701c1fb2345b9b6740f951dc76, type: 2}
+  abilities: {fileID: 11400000, guid: 35c7f014170e6fb4e9b1a757d74f0fa1, type: 2}
+  heroName: Adventurer
+  health: 100
+  firePoint: {fileID: 0}
+  defaultShot: {fileID: 0}
+  target: {fileID: 0}
 --- !u!137 &137646011983259292
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
