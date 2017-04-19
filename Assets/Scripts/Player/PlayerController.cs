@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
             //Handle character animation
             float forwardVal = Vector3.Dot(transform.forward, dir);
             Vector3 crossVector = Vector3.Cross(lookDir, Vector3.up);
-            float sideValue = -Vector3.Dot(crossVector, dir);
+            float sideValue = Vector3.Dot(crossVector, dir);
             anim.SetBool("Moving", true);
             anim.SetFloat("Movement Forward", forwardVal);
             anim.SetFloat("Movement Side", sideValue);

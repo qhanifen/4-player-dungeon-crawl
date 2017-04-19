@@ -7,6 +7,6 @@ public class WaitForAnimation : AICondition {
 
     public override bool Decide(StateController controller)
     {
-        return controller.CheckIfCounDownElapsed(waitTime);
+        return controller.CheckIfCountDownElapsed(waitTime);
     }    
 }

@@ -19,7 +19,7 @@ public class StateController : MonoBehaviour {
     public void Initialize(AIBehavior aiAgent)
     {
         AI = aiAgent;
-        aiActive = true;
+        //aiActive = true;
 	}
 	
 	// Update called through AI Update Machine Event
@@ -44,7 +44,7 @@ public class StateController : MonoBehaviour {
         }
     }
 
-    public bool CheckIfCounDownElapsed(float timer)
+    public bool CheckIfCountDownElapsed(float timer)
     {
         stateTimeElapsed += Time.deltaTime;
         return (stateTimeElapsed >= timer);        

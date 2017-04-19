@@ -19,7 +19,7 @@ public class GameManager : MonoSingletonPersistent<GameManager>
         int spawnCount = playerControllers.Count;
         foreach (PlayerController player in playerControllers)
         {
-            //heroes.Add(Instantiate())
+            //heroes.Add(Instantiate(player.hero, spawnpoint, Quaternion.identity))
         }
     }
 

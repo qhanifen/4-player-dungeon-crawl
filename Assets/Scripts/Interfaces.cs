@@ -48,3 +48,10 @@ public interface IProjectile
     void OnTriggerEnter(Collider other);
 }
 
+#region AI 
+public interface IChaser
+{
+    void FindClosestTarget();
+
+}
+#endregion

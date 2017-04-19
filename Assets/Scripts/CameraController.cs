@@ -12,6 +12,7 @@ public class CameraController : MonoBehaviour {
     public float maxZDistance = 50f;
     public float cameraPanSpeed = 7.0f;
     public float cameraZoomSpeed = 5.0f;
+    public float cameraAngle = 55f;
     #endregion
 
     public List<Transform> roomFocalPoints;
@@ -19,10 +20,16 @@ public class CameraController : MonoBehaviour {
     public List<GameObject> trackedObjects;
     public bool trackedObjectsInView;
     public Rect cameraRect;
+    public Rect objectBounds;
 
     Camera cam;
     public Vector3 focalVector;
     public Vector3 calculatedCenter;
+    public Vector3 cameraAngleVector;
+    public float cameraZoom;
+    float cameraDistance = 25f;
+    float minBoundsDelta = 25f;
+    float maxBoundsDelta = 150f;
 
     public void Start()
     {
@@ -31,17 +38,20 @@ public class CameraController : MonoBehaviour {
         {
             trackedObjects.Add(hero.gameObject);
         }*/
-
         cameraRect = new Rect(xCameraBuff, yCameraBuff, Screen.width - (xCameraBuff * 2), Screen.height - (yCameraBuff * 2));
-        focalVector = Vector3.zero;
-        transform.position = Vector3.zero + -transform.forward * minZDistance;
+
+        //Initialize camera position
+        SetCameraPosition();        
     }
 
     [ContextMenu("Reset Camera Position")]
-    void ResetCameraPosition()
+    void SetCameraPosition()
     {
         focalVector = Vector3.zero;
+        cameraAngleVector = Quaternion.Euler(90f - cameraAngle, 0, 0) * Vector3.back;
+        cameraDistance = minZDistance;
         transform.position = Vector3.zero + -transform.forward * minZDistance;
+        cameraAngleVector = Quaternion.Euler(90f - cameraAngle, 0, 0) * Vector3.back;
     }
 
 #if UNITY_EDITOR
@@ -49,23 +59,33 @@ public class CameraController : MonoBehaviour {
     {
         cameraRect = new Rect(xCameraBuff, yCameraBuff, Screen.width - (xCameraBuff * 2), Screen.height - (yCameraBuff * 2));
         Texture2D tex = new Texture2D(1, 1);
+        Texture2D objectTex = new Texture2D(1, 1);
         Color color = trackedObjectsInView ? Color.green : Color.red;
+        Color objectBoundsColor = Color.blue;
         tex.SetPixel(0, 0, color);
-        tex.Apply();        
+        tex.Apply();
+        objectTex.SetPixel(0, 0, objectBoundsColor);
+        objectTex.Apply();
         float thickness = 2;
         //Top line
         GUI.DrawTexture(new Rect(xCameraBuff, yCameraBuff, Screen.width - (2 * xCameraBuff), thickness), tex);
+        GUI.DrawTexture(new Rect(objectBounds.xMin, objectBounds.yMin, objectBounds.xMax - objectBounds.xMin, thickness), objectTex);
         //Bottom line
         GUI.DrawTexture(new Rect(xCameraBuff, Screen.height - yCameraBuff, Screen.width - (2 * xCameraBuff), thickness), tex);
+        GUI.DrawTexture(new Rect(objectBounds.xMin, objectBounds.yMax, objectBounds.xMax - objectBounds.xMin, thickness), objectTex);
         //Left line
-        GUI.DrawTexture(new Rect(xCameraBuff, yCameraBuff, thickness, Screen.height - (2 * xCameraBuff)), tex);
+        GUI.DrawTexture(new Rect(xCameraBuff, yCameraBuff, thickness, Screen.height - (2 * yCameraBuff)), tex);
+        GUI.DrawTexture(new Rect(objectBounds.xMin, objectBounds.yMin, thickness, objectBounds.yMax - objectBounds.yMin), objectTex);
         //Right line
-        GUI.DrawTexture(new Rect(Screen.width - xCameraBuff, yCameraBuff, thickness, Screen.height - (2 * xCameraBuff)), tex);
+        GUI.DrawTexture(new Rect(Screen.width - xCameraBuff, yCameraBuff, thickness, Screen.height - (2 * yCameraBuff)), tex);
+        GUI.DrawTexture(new Rect(objectBounds.xMax, objectBounds.yMin, thickness, objectBounds.yMax - objectBounds.yMin), objectTex);
 
         //Drawn center
         Vector3 screenPos = cam.WorldToScreenPoint(calculatedCenter);
         GUI.DrawTexture(new Rect(new Vector2(screenPos.x, Screen.height - screenPos.y), new Vector2(5,5)), tex);
 
+        Debug.DrawLine(transform.position, focalVector, color);
+        
         //Draw game objects
         color = Color.blue;
         tex.SetPixel(0, 0, color);
@@ -81,7 +101,6 @@ public class CameraController : MonoBehaviour {
     void Update()
     {
         CheckClosestRoom();
-        TrackNewObjects();
         AdjustCameraView();
     }
 
@@ -98,36 +117,31 @@ public class CameraController : MonoBehaviour {
     void AdjustCameraView()
     {
         //Find min/max points on screen
-        float minX = 0, minZ = 0, maxX = 0, maxZ = 0;
+        objectBounds = new Rect(cam.pixelRect.center, Vector2.zero);
         bool objectsOnScreen = true;
         for(int i=0; i < trackedObjects.Count; i++)
-        {   
-            Vector3 pos = trackedObjects[i].transform.position;
-            if(i == 0)
+        {
+            Vector3 pos = trackedObjects[i].transform.position;          
+            Vector2 screenPoint = cam.WorldToScreenPoint(pos);
+            calculatedCenter += pos;
+
+            if(screenPoint.x < objectBounds.xMin)
             {
-                minX = pos.x;
-                maxX = pos.x;
-                minZ = pos.z;
-                maxZ = pos.z;
+                objectBounds.xMin = screenPoint.x;
             }
-            if(pos.x < minX)
+            if (screenPoint.x > objectBounds.xMax)
             {
-                minX = pos.x;
+                objectBounds.xMax = screenPoint.x;
             }
-            if (pos.x > maxX)
+            if (Screen.height - screenPoint.y < objectBounds.yMin)
             {
-                maxX = pos.x;
+                objectBounds.yMin = Screen.height - screenPoint.y;
             }
-            if (pos.z < minZ)
+            if (Screen.height - screenPoint.y > objectBounds.yMax)
             {
-                minZ = pos.z;
-            }
-            if (pos.z > maxZ)
-            {
-                maxZ = pos.z;
+                objectBounds.yMax = Screen.height - screenPoint.y;
             }
 
-            Vector3 screenPoint = cam.WorldToScreenPoint(pos);
             if(objectsOnScreen)
             {
                 if(!cameraRect.Contains(screenPoint))
@@ -138,31 +152,43 @@ public class CameraController : MonoBehaviour {
         }
         trackedObjectsInView = objectsOnScreen;
         Vector3 lastPosition = calculatedCenter;
-        calculatedCenter = new Vector3((minX + (maxX - minX)/2), 0, (minZ + (maxZ - minZ)/2));
+        calculatedCenter /= trackedObjects.Count;
+        calculatedCenter.y = 0;
+        Vector3 deltaVector = (calculatedCenter - focalVector);
 
         //Vector3 cameraCenter = Physics.Raycast(cam.ScreenPointToRay(screenCenter);
 
-        MoveCamera();        
+        MoveCamera(deltaVector);        
     }
-
-    void MoveCamera()
+        
+    void MoveCamera(Vector3 deltaVector)
     {
-        Vector3 deltaVector = calculatedCenter - focalVector;
+        //To do: Add Lerped Movement Speed
+        //To do: Add camera Zoom In/Out
+        focalVector += deltaVector * cameraPanSpeed * Time.deltaTime;
 
-        /*if ()
+        //cameraZoom = trackedObjectsInView ? -1 : 1;
+
+        float deltaX = Mathf.Abs(objectBounds.x - cameraRect.x);
+        float deltaY = Mathf.Abs(objectBounds.y - cameraRect.y);
+
+        if (deltaX > maxBoundsDelta || deltaY > maxBoundsDelta)
         {
-
+            cameraZoom = 1;
         }
-        */
-        //transform.Translate(deltaVector * cameraPanSpeed * Time.deltaTime);
-        if (!trackedObjectsInView)
+        else if(deltaX < minBoundsDelta || deltaY < minBoundsDelta)
         {
-            transform.Translate(transform.forward.normalized * -cameraZoomSpeed * Time.deltaTime, Space.Self);
+            cameraZoom = 0;
         }
         else
         {
-            transform.Translate(transform.forward * cameraZoomSpeed * Time.deltaTime, Space.Self);
+            cameraZoom = Mathf.InverseLerp(0, maxBoundsDelta, Mathf.Min(deltaX, deltaY));
         }
-        //Vector3.Lerp(cam.transform.position, dir, )
+        //cameraDistance += cameraZoom * Time.deltaTime;
+        cameraDistance = Mathf.Lerp(minZDistance, maxZDistance, cameraZoom);
+        transform.position = focalVector + (cameraAngleVector * cameraDistance);
+
+        //Testing purposes, remove if necessary
+        transform.LookAt(calculatedCenter);
     }
 }

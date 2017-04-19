@@ -54,7 +54,6 @@ public class AIBehavior : MonoBehaviour {
         {
             path = (MultiTargetPath)p;
             currentWaypoint = 0;
-            UpdateTarget();
             UpdatePath();
             p.Release(this);
         }
@@ -76,11 +75,7 @@ public class AIBehavior : MonoBehaviour {
     {
         Vector3[] pos = PlayerManager.instance.GetHeroPositions();
         seeker.StartMultiTargetPath(transform.position, pos, true);
-    }
-
-    public void UpdateTarget()
-    {        
-    }
+    }    
     #endregion
 
     #region Combat Methods
