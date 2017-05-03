@@ -1,30 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using Pathfinding;
 
 public class Imp : Enemy
 {
-    public int defaultWeapon;
-    public Weapon equippedWeapon;
-    public WeaponList weaponsList;
-    
-    void Awake()
+    public override void StartPath()
     {
-        //RandomWeapon();
+        Vector3[] pos = PlayerManager.instance.GetHeroPositions();
+        path = seeker.StartMultiTargetPath(transform.position, pos, true);
     }
 
-    void RandomWeapon()
+    public void GetClosestTargetFromPath()
     {
-        int random = Random.Range(1, 10);
-        if(random == 10)
-        {
-            int randomWeapon = Random.Range(1, weaponsList.weapons.Count);
-            equippedWeapon = weaponsList.weapons[randomWeapon];
-        }
-        else
-        {
-            equippedWeapon = weaponsList.weapons[defaultWeapon];
-        }
+        MultiTargetPath p = (MultiTargetPath)path;        
+        target = PlayerManager.GetHero(p.chosenTarget).transform;
     }
-	
 }

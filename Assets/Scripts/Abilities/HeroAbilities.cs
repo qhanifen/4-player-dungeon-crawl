@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu( menuName = "Hero/Abilities List")]
 public class HeroAbilities : ScriptableObject

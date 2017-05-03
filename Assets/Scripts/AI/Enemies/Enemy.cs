@@ -37,7 +37,7 @@ public class Enemy : AIBehavior, ITargetable, IDamageable
             break;
     }
     */
-    
+
     #region ITargetable implementation
 
     public Transform GetTarget
@@ -77,12 +77,7 @@ public class Enemy : AIBehavior, ITargetable, IDamageable
         anim.SetBool("Dead", true);
     }
 
-    #endregion
-
-    void OnDisable()
-    {
-        seeker.pathCallback -= OnPathComplete;
-    }
+    #endregion    
 
     public void UpdateTarget(MultiTargetPath p)
     {

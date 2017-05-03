@@ -20,10 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4934443987410506}
   - component: {fileID: 95915196673768858}
-  - component: {fileID: 114788303528190570}
+  - component: {fileID: 114674885305473226}
   - component: {fileID: 114460203934036814}
   - component: {fileID: 114153205440708366}
-  - component: {fileID: 114897822943911044}
   - component: {fileID: 114239413829204088}
   m_Layer: 0
   m_Name: Imp
@@ -97,7 +96,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516936868405586}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.66, y: 2.3364345e-16, z: -3.43}
+  m_LocalPosition: {x: 1.67, y: 2.3364345e-16, z: -5.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4580579744413790}
@@ -185,9 +184,12 @@ MonoBehaviour:
   currentState: {fileID: 11400000, guid: 72473394b66e7de4398f48724d6ceb4e, type: 2}
   remainState: {fileID: 11400000, guid: efdd96fe13ee1e14797844cc5ffc805d, type: 2}
   previousState: {fileID: 0}
-  anyStates: []
+  anyStates:
+  - condition: {fileID: 11400000, guid: bd9717e9b3e20f54998d52db3598e633, type: 2}
+    trueState: {fileID: 11400000, guid: b234a6ddda90de349a513bbdc251a1ab, type: 2}
+    falseState: {fileID: 11400000, guid: efdd96fe13ee1e14797844cc5ffc805d, type: 2}
   stateTimeElapsed: 0
---- !u!114 &114788303528190570
+--- !u!114 &114674885305473226
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -195,7 +197,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1516936868405586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7e8fb2ce805b1841987bb76a8684da2, type: 3}
+  m_Script: {fileID: 11500000, guid: 5c5c7507177739349a16a7aa88143327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
@@ -207,41 +209,12 @@ MonoBehaviour:
   nextWaypointDistance: 3
   anim: {fileID: 0}
   running: 0
-  stats: {fileID: 0}
+  stats: {fileID: 11400000, guid: 5a978a8871c32f54083eb9a8ee3cdcd2, type: 2}
   target: {fileID: 0}
   currentHealth: 0
+  attackRange: 1.2
   alerted: 0
   enemyType: 0
-  defaultWeapon: 0
-  equippedWeapon: {fileID: 0}
-  weaponsList: {fileID: 0}
---- !u!114 &114897822943911044
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1516936868405586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  drawGizmos: 1
-  detailedGizmos: 1
-  startEndModifier:
-    addPoints: 1
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 1
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  traversableTagsCompatibility:
-    tagsChange: -1
-    tagsSet: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!137 &137730064224231738
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

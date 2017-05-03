@@ -8,10 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcbfa7e6218def047a65c9d7e3226dd5, type: 3}
-  m_Name: Chase Player
+  m_Script: {fileID: 11500000, guid: b1c1a95807bd56449afc1f13c70d4b9f, type: 3}
+  m_Name: Close to Target
   m_EditorClassIdentifier: 
-  actions:
-  - {fileID: 0}
-  transitions: []
-  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

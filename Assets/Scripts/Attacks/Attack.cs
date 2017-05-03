@@ -2,7 +2,8 @@
 
 public abstract class Attack : ScriptableObject {
 
-    public float attackRate;
+    public readonly float attackRate;
+    public float damage;
 
-    public abstract void ActivateAttack(Hero hero);
+    public abstract void OnAttack(Hero hero);
 }

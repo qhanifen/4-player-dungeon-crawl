@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcbfa7e6218def047a65c9d7e3226dd5, type: 3}
-  m_Name: Imp Patrol State
+  m_Name: Death State
   m_EditorClassIdentifier: 
-  actions:
-  - {fileID: 11400000, guid: 2efffd8bfc1f2c245b65f08dafecf79e, type: 2}
-  transitions:
-  - condition: {fileID: 0}
-    trueState: {fileID: 0}
-    falseState: {fileID: 0}
-  sceneGizmoColor: {r: 0.07586217, g: 1, b: 0, a: 1}
+  enterStateActions:
+  - {fileID: 11400000, guid: cb602751565679445b9cadec149c18f7, type: 2}
+  - {fileID: 11400000, guid: 82443cb76161e4e4e9d7407a4a86eff4, type: 2}
+  updateStateActions: []
+  exitStateActions: []
+  transitions: []
+  sceneGizmoColor: {r: 0.33823532, g: 0.33823532, b: 0.33823532, a: 1}

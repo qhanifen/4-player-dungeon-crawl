@@ -6,8 +6,7 @@ using UnityEngine;
 public class AIStats : ScriptableObject
 {
     public int health = 100;
-    public float walkSpeed = 5.0f;
-    public float runSpeed = 10.0f;
+    public float speed = 10.0f;
     public float turnSpeed = 10.0f;
 
     public LayerMask attackLayerMask;

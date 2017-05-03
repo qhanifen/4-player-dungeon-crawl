@@ -8,9 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcbfa7e6218def047a65c9d7e3226dd5, type: 3}
-  m_Name: RemainInState
+  m_Script: {fileID: 11500000, guid: d48b6cfdb199d754aa70c99eb35c2fb9, type: 3}
+  m_Name: Adventurer Attack Chain
   m_EditorClassIdentifier: 
-  actions: []
-  transitions: []
-  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  damage: 5
+  attackCounter: 0
+  attacksMax: 3
+  chainFallOff: 2.5

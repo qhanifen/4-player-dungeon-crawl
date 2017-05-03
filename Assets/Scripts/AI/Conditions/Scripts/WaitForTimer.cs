@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu ( menuName = "AI/Conditions/WaitForAnimation")]
-public class WaitForAnimation : AICondition {
+[CreateAssetMenu ( menuName = "AI/Conditions/Wait For Timer")]
+public class WaitForTimer : AICondition {
 
     public float waitTime;
 

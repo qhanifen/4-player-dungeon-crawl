@@ -52,6 +52,6 @@ public interface IProjectile
 public interface IChaser
 {
     void FindClosestTarget();
-
+    void ChaseTarget();
 }
 #endregion

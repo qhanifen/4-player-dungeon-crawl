@@ -13,28 +13,10 @@ public class ChasePlayer : AIAction
 
     private void Chase(StateController controller)
     {
-        //Transform target = CheckClosestTarget(controller);
-        //controller.AI.target = target;        
-
-    }
-
-    /*private Transform CheckClosestTarget(StateController controller)
-    {
-        Transform target;
-       
-
-        //Save if MultiPath is too expensive
-        /*foreach(Hero hero in GameManager.instance.heroes)
+        if(controller.AI.path == null)
         {
-            if(target != null)
-            {
-                float sqrDistance = Vector3.SqrMagnitude(hero.transform.position - controller.transform.position);
-            }
-            else
-            {
-                target = hero;
-            }
+            controller.AI.StartPath();
         }
-        return target;
-    }*/
+        controller.AI.UpdatePath();
+    }    
 }

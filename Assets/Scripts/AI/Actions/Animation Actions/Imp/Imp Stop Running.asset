@@ -8,13 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35034c859a259c142acd5d256ef4a264, type: 3}
-  m_Name: Ghoul
+  m_Script: {fileID: 11500000, guid: f1d64ef40c031de4698ce9ad7eb80ad7, type: 3}
+  m_Name: Imp Stop Running
   m_EditorClassIdentifier: 
-  health: 50
-  walkSpeed: 5
-  runSpeed: 10
-  turnSpeed: 10
-  attackLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
+  animationType: 0
+  animationParameter: Running
+  toggle: 0
+  amount: 0

@@ -5,16 +5,7 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(PlayerController))]
 public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
-
-	[Serializable]
-	public enum HeroType
-	{
-		Melee,
-		Ranged
-	};
-
-	public HeroType heroType;
-
+    
     public PlayerController controller;
 
     public HeroStats stats;
@@ -23,7 +14,7 @@ public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
 	public string heroName;
 	public int health = 100;	
 
-	private float timer = 0.0f;
+	public float attackTimer = 0.0f;
 
 	public Transform firePoint;
 	public Projectile defaultShot;
@@ -38,26 +29,7 @@ public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
 
 	public void Attack()
 	{
-		timer += Time.fixedDeltaTime;
-		if(timer >= abilities.basicAttack.attackRate)
-		{
-			timer = 0.0f;
-
-			IProjectile shot = (Projectile)Instantiate(defaultShot, firePoint.position, firePoint.rotation);
-			switch (defaultShot.GetProjectileType())
-			{
-			case Projectile.MissleType.Missle: case Projectile.MissleType.Projectile:
-				break;
-			case Projectile.MissleType.Homing:
-				if(target!=null)
-				{	
-					shot.SetTarget(target);
-				}
-				break;
-			}
-
-
-		}
+        abilities.basicAttack.OnAttack(this);
 	}
 
 	#region ITargetable implementation

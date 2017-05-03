@@ -6,12 +6,11 @@ public class StateController : MonoBehaviour {
 
     public bool aiActive;
     public AIBehavior AI;
-
-    public Dictionary<string, AIState> states;
+    
     public AIState currentState;
     public AIState remainState;
     public AIState previousState;
-    public AIState[] anyStates;
+    public AITransition[] anyStates;
 
     [HideInInspector] public float stateTimeElapsed;
     
@@ -23,14 +22,17 @@ public class StateController : MonoBehaviour {
 	}
 	
 	// Update called through AI Update Machine Event
-	public void Update()
+	public void UpdateController()
     {
         if (aiActive)
         {
             currentState.UpdateState(this);
             for(int i = 0; i< anyStates.Length; i++)
             {
-                anyStates[i].UpdateState(this);
+                if(anyStates[i].condition.Decide(this) == true)
+                {
+                    ToNextState(anyStates[i].trueState);
+                }
             }
         }
 	}
@@ -39,7 +41,10 @@ public class StateController : MonoBehaviour {
     {
         if (nextState != remainState)
         {
+            currentState.OnStateExit(this);
+            previousState = currentState;
             currentState = nextState;
+            nextState.OnStateEnter(this);
             OnExitState();
         }
     }

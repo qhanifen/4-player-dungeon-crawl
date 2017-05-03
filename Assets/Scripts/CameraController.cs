@@ -117,6 +117,7 @@ public class CameraController : MonoBehaviour {
     void AdjustCameraView()
     {
         //Find min/max points on screen
+        calculatedCenter = new Vector3();
         objectBounds = new Rect(cam.pixelRect.center, Vector2.zero);
         bool objectsOnScreen = true;
         for(int i=0; i < trackedObjects.Count; i++)
@@ -151,7 +152,6 @@ public class CameraController : MonoBehaviour {
             }
         }
         trackedObjectsInView = objectsOnScreen;
-        Vector3 lastPosition = calculatedCenter;
         calculatedCenter /= trackedObjects.Count;
         calculatedCenter.y = 0;
         Vector3 deltaVector = (calculatedCenter - focalVector);

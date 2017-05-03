@@ -25,14 +25,7 @@ public class Projectile : MonoBehaviour, IProjectile
 
 
     public Transform currentTarget;
-
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
+        
     void FixedUpdate()
     {
         Move();
