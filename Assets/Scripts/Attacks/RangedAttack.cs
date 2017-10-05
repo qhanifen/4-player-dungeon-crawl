@@ -12,9 +12,8 @@ public class RangedAttack : Attack {
 
     public void FireProjectile(Hero hero)
     {
-        Projectile p = Instantiate(projectile, hero.firePoint.position, Quaternion.identity, null);
         IProjectile shot = (Projectile)Instantiate(projectile, hero.firePoint.position, hero.firePoint.rotation);
-        switch (projectile.GetProjectileType())
+        switch (shot.GetProjectileType())
         {
             case Projectile.MissleType.Missle:
             case Projectile.MissleType.Projectile:

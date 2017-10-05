@@ -23,7 +23,7 @@ public class ButtonScript : MonoBehaviour
 	{
 		effectScript = GameObject.Find("FireProjectile").GetComponent<FireProjectile>();
 		getProjectileNames();
-		MyButtonText = Button.transform.FindChild("Text").GetComponent<Text>();
+		MyButtonText = Button.transform.Find("Text").GetComponent<Text>();
 		MyButtonText.text = projectileParticleName;
 	}
 

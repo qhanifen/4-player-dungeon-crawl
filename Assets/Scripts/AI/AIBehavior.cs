@@ -15,7 +15,7 @@ public class AIBehavior : MonoBehaviour
     [HideInInspector] public float lastRepath = -9999f;
     [HideInInspector] public float repathRate = .5f;
     [HideInInspector] public Vector3 targetPosition;
-    [HideInInspector] public int currentWaypoint = 0;
+    public int currentWaypoint = 0;
     [HideInInspector] public float nextWaypointDistance = .5f;
     #endregion
 
