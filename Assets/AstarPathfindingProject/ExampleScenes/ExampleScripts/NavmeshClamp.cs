@@ -18,7 +18,7 @@ namespace Pathfinding {
 		// Update is called once per frame
 		void LateUpdate () {
 			if (prevNode == null) {
-				NNInfo nninfo = AstarPath.active.GetNearest(transform.position);
+				var nninfo = AstarPath.active.GetNearest(transform.position);
 				prevNode = nninfo.node;
 				prevPos = transform.position;
 			}

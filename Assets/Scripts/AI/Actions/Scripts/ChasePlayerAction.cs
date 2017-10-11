@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "AI/Actions/Chase Player")]
 public class ChasePlayer : AIAction
@@ -13,6 +10,7 @@ public class ChasePlayer : AIAction
 
     private void Chase(StateController controller)
     {
+        controller.AI.GetTarget();
         if(controller.AI.path == null)
         {
             controller.AI.StartPath();

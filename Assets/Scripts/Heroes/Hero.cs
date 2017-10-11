@@ -1,9 +1,6 @@
 ﻿using UnityEngine;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 
-[RequireComponent(typeof(PlayerController))]
 public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
     
     public PlayerController controller;
@@ -12,19 +9,19 @@ public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
     public HeroAbilities abilities;
 
 	public string heroName;
-	public int health = 100;	
+	public int health = 100;
+    public float runSpeed = 10.0f;
+    public float rotationSpeed = 8.0f;
 
-	public float attackTimer = 0.0f;
+    public float attackTimer = 0.0f;
 
 	public Transform firePoint;
 	public Projectile defaultShot;
 
 	public Transform target = null;
-
-    // Use this for initialization
+        
     void Start ()
-	{
-        controller = GetComponent<PlayerController>();
+	{        
 	}
 
 	public void Attack()
@@ -39,7 +36,7 @@ public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
 		throw new NotImplementedException ();
 	}
 
-	public Transform GetTarget
+	public Transform Target
 	{
         get
         {

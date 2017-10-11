@@ -2,7 +2,7 @@
 
 public interface ITargetable
 {
-    Transform GetTarget { get; }
+    Transform Target { get; }
     void OnTargeted();
     void OnUntargeted();
 }

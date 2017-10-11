@@ -66,7 +66,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 112000000, guid: 1c44db7fd2dd64d9b98b1a179b7493ac,
+  m_LightmapSnapshot: {fileID: 112000001, guid: 1c44db7fd2dd64d9b98b1a179b7493ac,
     type: 2}
   m_RuntimeCPUUsage: 25
 --- !u!1 &5
@@ -7064,6 +7064,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77f586f285b3847808d79083bd19ef1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
+  unwrap: 1
+  splitAtEveryPortal: 0
 --- !u!114 &529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7076,17 +7079,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f35b84b127b849e38b74966118e7e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   repathRate: .200000003
   target: {fileID: 226}
   canSearch: 1
   canMove: 1
   speed: 4
-  turningSpeed: 6
+  rotationSpeed: 540
   slowdownDistance: .600000024
   pickNextWaypointDist: 1.5
-  forwardLook: 1
   endReachedDistance: .0500000007
-  closestOnPathCheck: 1
+  alwaysDrawGizmos: 0
   anim: {fileID: 522}
   sleepVelocity: .200000003
   animationSpeed: .400000006
@@ -7103,6 +7106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   drawGizmos: 1
   detailedGizmos: 0
   startEndModifier:
@@ -7130,8 +7134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  astarData:
-    dataString: UEsDBBQAAAgIAAAIIeypKKdHxQEAACoDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlkstu2zAQRf+Fa9WgHmljL+sEyaKOCymLoEUXI2okEaFIl6TiR+B/71CylKRZEXPmQc69fGVNLyu2emUvoHpkK1YuecbrrMygwmsR45eyTpZYiuRbUiZJGXN2jphowYLwaHOoZO/Yii+uiRrtTW83cLi11li2SoihUoU8YSi5hPcom9YHwOOI7UE9Q6lwovHi6g2ulezKUEmsg0OhzI4mpXyIbqsGf6BufEs3BSR1jo00erwvIKykN/ZRKhxZnNAgfwmf/ot/XWKNYNH5gg7RbrU6PlGmBuUwYr3DMI029ran2KLCF9D+zsKuLXpbg8CNqYKQN+bB+Bz/9tIio0pwpBddszZKyQqtm4fOqQ269t3sCT+itSD1Z27xrVpcxuZT9gY9SEU7kQ61sQKr76bXlVujpoJg+YGUjdiRBF2ky5inWZxG7ETw/LFj1G6oj/nYEfNFxpcpv/o6dBA+B0/c87uvFBPy0GwG+vtPxFxr9mHFbe+V1DjvH/gDibY2WqPw5KD7kAs9F22nbf0oSQHdbvKW3i619BLUT9Sg/HHYjj7MLJyGLhiToyCNBsfIl8rC/k6eOjMrKXVtCkHa6u3QPLzk/A9QSwMEFAAACAgAAAgh7Hba2+t3AAAAhQAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQEdjLEOwiAUAP/lzZXAK0ltVwe3xriaDjx4tAxCU6iJMf67xe2Gu/vAi7ccUoQBWtGJFhqYN7MuGQZ14B7cQQ+gXmrpNWnj+GwVn8hjz2SxQ0IkJWFqoLxXHs2T/8XNlMWH6EKcxZ2tyeVav9WLyfEl7bFUUU7fH1BLAQItABQAAAgIAAAIIeypKKdHxQEAACoDAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIex22tvrdwAAAIUAAAAJACQAAAAAAAAAAAAAABICAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAA1AIAAAAA
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAIIez3EF7ozAEAAJUDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1Uk1T2zAQ/SsZn9uMv2hJjw0MPTSkY3NgYHpYS2tbgyyl+iAhDP+9WtmhprQn2e/pvdW+3eeE9WCAOTQVcOFt8mWRLs8/LBKmldPebOBwaYw2Ac8JRSlrccR4jYA9yAdoJH5D0fUuwNnybAavpRiaeJnQAQ611DtSF+n4f8k7/I6qcz1ViKBQFXZCq6lOBJELp82NkDihWU6GbgJu3yF3r4i3SDrqzBmPATEo8RGUuzKw62tvWmC40Zxskwt9rV2Fv7wwmNBdsCGbYLjWUgqOhnxakBbn5AZt/6bCibhBY0CofzEG5wo22Vcn/gIdCEldjEnZh/D9vEgeQfoYwOKF2oVuM1L3P+l3LFfDsHtNqqCq2oELkY4WBxpIQJ+m80hntGu1Yci/aq+4XaMKdu8VxbJYZWlRZsV/pVPlSZilJ2mWLst0VaRnnyZpoKLY9npPGW69k0LhLGJirsNs1lopZNSD/Ysl3TTEP3EqBIPW1eFg/VbJp9u7mazzgr9NM2lWaZm2ZVMCx3OW4cemzVfYsPxz3uR5k6VJfKhQwgmQP1CBdKf8wkbPJqxgiI4VsjDLuGO0SNzA/kocBz0bulCtrllYBLUdLeIDX34DUEsDBBQAAAgIAAAIIex5sUGqbgAAAHkAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0DPQUVBKL0osyCgGChiCOKWZKSB2tFKSpYGJQZpJkkliSqpFsmGqblKakWVqUrKRuVGSkVGSoYFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66XlBqcmJxiTvIcKXYWgBQSwECLQAUAAAICAAACCHs9xBe6MwBAACVAwAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsebFBqm4AAAB5AAAACQAkAAAAAAAAAAAAAAAZAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAANICAAAAAA==
     upgradeData: 
     data_backup: 
     file_cachedStartup: {fileID: 0}
@@ -7143,7 +7148,7 @@ MonoBehaviour:
   debugFloor: 0
   debugRoof: 1
   manualDebugFloorRoof: 0
-  showSearchTree: 1
+  showSearchTree: 0
   unwalkableNodeDebugSize: .300000012
   logPathResults: 1
   maxNearestNodeDistance: 4
@@ -7158,7 +7163,6 @@ MonoBehaviour:
     _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: .5}
     _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: .5}
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: .5}
-    _MeshColor: {r: .125, g: .68599999, b: 0, a: .189999998}
     _AreaColors: []
   tagNames:
   - Basic Ground
@@ -7198,15 +7202,14 @@ MonoBehaviour:
   threadCount: 0
   maxFrameTime: 1
   minAreaSize: 4
-  limitGraphUpdates: 1
-  maxGraphUpdateFreq: .200000003
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: .200000003
   euclideanEmbedding:
     mode: 0
     seed: 0
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 10
   showGraphs: 1
-  lastUniqueAreaIndex: 4
 --- !u!114 &533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7674,6 +7677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89de3babe23e46669cbf998c0200cad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
   updateInterval: 0
 --- !u!1 &2106762544
 GameObject:

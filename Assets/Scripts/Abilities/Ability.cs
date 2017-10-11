@@ -32,7 +32,7 @@ public class Ability : MonoBehaviour, ICastable {
 
 	public Transform Target ()
 	{
-		return target.GetTarget;
+		return target.Target;
 	}
 
 	public IEnumerator CoolDown ()

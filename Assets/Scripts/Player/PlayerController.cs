@@ -4,31 +4,24 @@ using Rewired;
 
 public class PlayerController : MonoBehaviour
 {
-    public float runSpeed = 10.0f;
-    public float rotationSpeed = 8.0f;
-
     #region Input Variables
     [HideInInspector]
     public int playerID = 0;
     public Player player;
     public Hero hero;
-    public Animator anim;
+    [HideInInspector] public Animator anim;
     public bool active = false;
 
     public delegate void InteractEvent();
     public event InteractEvent Interact;
     #endregion
-
-    public void SetHero(Hero _hero)
-    {
-        hero = _hero;
-    }
-
+    
     // Use this for initialization
     void Start()
     {
         hero = this.GetComponent<Hero>();
         anim = hero.GetComponent<Animator>();
+        //Inject Player later from PlayerManager
         player = ReInput.players.GetPlayer(playerID);
         active = true;
     }
@@ -66,17 +59,17 @@ public class PlayerController : MonoBehaviour
         //Handle character rotation
         if (lookDir != Vector3.zero)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDir.normalized), rotationSpeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(lookDir.normalized), hero.rotationSpeed * Time.fixedDeltaTime);
         }
         else if (dir != Vector3.zero)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir.normalized), rotationSpeed * Time.fixedDeltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir.normalized), hero.rotationSpeed * Time.fixedDeltaTime);
         }
         
         //Handle character movement
         if (dir != Vector3.zero)
         {
-            transform.Translate(dir.normalized * runSpeed * Time.fixedDeltaTime, Space.World);
+            transform.Translate(dir.normalized * hero.runSpeed * Time.fixedDeltaTime, Space.World);
             
             //Handle character animation
             float forwardVal = Vector3.Dot(transform.forward, dir);

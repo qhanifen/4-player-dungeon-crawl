@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class CrossGameState : MonoSingletonPersistent<CrossGameState> {
 
-    private const string k_startGameScene = "Main Menu";
-    private const string k_loadingSceneName = "Loading Scene";
+    private const string startGameScene = "Main Menu";
+    private const string loadingSceneName = "Loading Scene";
 
 	// Use this for initialization
 	void StartGame () {
-        LoadScene(k_startGameScene);
+        LoadScene(startGameScene);
 	}
 	
     public void LoadScene(string sceneName)
@@ -21,7 +21,7 @@ public class CrossGameState : MonoSingletonPersistent<CrossGameState> {
 
 	public void LoadSceneAsync(string sceneName)
     {
-        SceneManager.LoadScene(k_loadingSceneName);
+        SceneManager.LoadScene(loadingSceneName);
         SceneManager.LoadSceneAsync(sceneName);
     }
 }

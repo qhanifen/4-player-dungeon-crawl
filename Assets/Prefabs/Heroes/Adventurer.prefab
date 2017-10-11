@@ -20,9 +20,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4619492051390352}
   - component: {fileID: 95294621262678548}
-  - component: {fileID: 114011742019425664}
   - component: {fileID: 114825281171407750}
-  m_Layer: 0
+  - component: {fileID: 54685467267885578}
+  - component: {fileID: 136177461056244942}
+  - component: {fileID: 114289366316371986}
+  m_Layer: 11
   m_Name: Adventurer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +41,7 @@ GameObject:
   - component: {fileID: 4038949096546664}
   - component: {fileID: 33695022910142038}
   - component: {fileID: 23399262796337286}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4873526231763904}
   - component: {fileID: 137646011983259292}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Adventurer Aland
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,15 +83,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1121980368644476}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.102086, y: 2.612853e-16, z: -11.767243}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4873526231763904}
   - {fileID: 4038949096546664}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!4 &4873526231763904
 Transform:
   m_ObjectHideFlags: 1
@@ -142,6 +144,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644603879612214}
   m_Mesh: {fileID: 4300002, guid: b280ad9530591c54081b6c0099923a49, type: 3}
+--- !u!54 &54685467267885578
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121980368644476}
+  serializedVersion: 2
+  m_Mass: 25
+  m_Drag: 5
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!95 &95294621262678548
 Animator:
   serializedVersion: 3
@@ -159,7 +176,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114011742019425664
+--- !u!114 &114289366316371986
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -170,12 +187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167f9bb9a2a6725438791f2cf4a8de01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 5
-  rotationSpeed: 10
   playerID: 0
   hero: {fileID: 0}
   anim: {fileID: 0}
-  active: 1
+  active: 0
 --- !u!114 &114825281171407750
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -187,15 +202,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a2a4f035570334cb81e84100913dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heroType: 0
   controller: {fileID: 0}
   stats: {fileID: 11400000, guid: 2270df701c1fb2345b9b6740f951dc76, type: 2}
   abilities: {fileID: 11400000, guid: 35c7f014170e6fb4e9b1a757d74f0fa1, type: 2}
   heroName: Adventurer
   health: 100
+  runSpeed: 10
+  rotationSpeed: 8
+  attackTimer: 0
   firePoint: {fileID: 0}
   defaultShot: {fileID: 0}
   target: {fileID: 0}
+--- !u!136 &136177461056244942
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1121980368644476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.6
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!137 &137646011983259292
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

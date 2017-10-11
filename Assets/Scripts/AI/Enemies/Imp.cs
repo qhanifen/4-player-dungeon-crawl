@@ -3,15 +3,33 @@ using Pathfinding;
 
 public class Imp : Enemy
 {
-    public override void StartPath()
+    void Awake()
     {
-        Vector3[] pos = PlayerManager.instance.GetHeroPositions();
-        path = seeker.StartMultiTargetPath(transform.position, pos, true);
     }
 
-    public void GetClosestTargetFromPath()
+    public override void StartPath()
     {
-        MultiTargetPath p = (MultiTargetPath)path;        
-        target = PlayerManager.GetHero(p.chosenTarget).transform;
+        seeker.StartMultiTargetPath(transform.position, PlayerManager.instance.GetHeroPositions(), true, OnPathComplete);
+        GetTarget();
+    }
+
+    public override void GetTarget()
+    {
+        if (target == null)
+        {
+            base.GetTarget();
+        }
+        else
+        {
+            if (path != null)
+            {
+                MultiTargetPath p = (MultiTargetPath)path;
+                target = PlayerManager.GetHero(p.chosenTarget).transform;
+            }
+            else
+            {
+                base.GetTarget();
+            }
+        }
     }
 }

@@ -1,104 +1,74 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Pathfinding;
 
-/** Demos different path types.
- * This script is an example script demoing a number of different path types included in the project.
- * Since only the Pro version has access to many path types, it is only included in the pro version
- * \astarpro
- *
- * \see Pathfinding.ABPath
- * \see Pathfinding.MultiTargetPath
- * \see Pathfinding.ConstantPath
- * \see Pathfinding.FleePath
- * \see Pathfinding.RandomPath
- * \see Pathfinding.FloodPath
- * \see Pathfinding.FloodPathTracer
- */
-[HelpURL("http://arongranberg.com/astar/docs/class_path_types_demo.php")]
-public class PathTypesDemo : MonoBehaviour {
-	public DemoMode activeDemo = DemoMode.ABPath;
-
-	public enum DemoMode {
-		ABPath,
-		MultiTargetPath,
-		RandomPath,
-		FleePath,
-		ConstantPath,
-		FloodPath,
-		FloodPathTracer
-	}
-
-	/** Start of paths */
-	public Transform start;
-
-	/** Target point of paths */
-	public Transform end;
-
-	/** Offset from the real path to where it is rendered.
-	 * Used to avoid z-fighting
+namespace Pathfinding.Examples {
+	/** Demos different path types.
+	 * This script is an example script demoing a number of different path types included in the project.
+	 * Since only the Pro version has access to many path types, it is only included in the pro version
+	 * \astarpro
+	 *
+	 * \see Pathfinding.ABPath
+	 * \see Pathfinding.MultiTargetPath
+	 * \see Pathfinding.ConstantPath
+	 * \see Pathfinding.FleePath
+	 * \see Pathfinding.RandomPath
+	 * \see Pathfinding.FloodPath
+	 * \see Pathfinding.FloodPathTracer
 	 */
-	public Vector3 pathOffset;
+	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_path_types_demo.php")]
+	public class PathTypesDemo : MonoBehaviour {
+		public DemoMode activeDemo = DemoMode.ABPath;
 
-	/** Material used for rendering paths */
-	public Material lineMat;
-
-	/** Material used for rendering result of the ConstantPath */
-	public Material squareMat;
-	public float lineWidth;
-
-	public RichAI[] agents;
-
-	public int searchLength = 1000;
-	public int spread = 100;
-	public float aimStrength = 0;
-
-	Path lastPath = null;
-
-	List<GameObject> lastRender = new List<GameObject>();
-
-	List<Vector3> multipoints = new List<Vector3>();
-
-	Vector2 mouseDragStart;
-	float mouseDragStartTime;
-
-	// Update is called once per frame
-	void Update () {
-		Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-		Vector3 zeroIntersect = ray.origin + ray.direction * (ray.origin.y / -ray.direction.y);
-
-		end.position = zeroIntersect;
-
-		if (Input.GetMouseButtonDown(0)) {
-			mouseDragStart = Input.mousePosition;
-			mouseDragStartTime = Time.realtimeSinceStartup;
+		public enum DemoMode {
+			ABPath,
+			MultiTargetPath,
+			RandomPath,
+			FleePath,
+			ConstantPath,
+			FloodPath,
+			FloodPathTracer
 		}
 
-		if (Input.GetMouseButtonUp(0)) {
-			Vector2 mouseDragEnd = Input.mousePosition;
-			if ((mouseDragEnd - mouseDragStart).sqrMagnitude > 5*5 && (Time.realtimeSinceStartup - mouseDragStartTime) > 0.3f) {
-				//Select
+		/** Start of paths */
+		public Transform start;
 
-				Rect r = Rect.MinMaxRect(
-					Mathf.Min(mouseDragStart.x, mouseDragEnd.x),
-					Mathf.Min(mouseDragStart.y, mouseDragEnd.y),
-					Mathf.Max(mouseDragStart.x, mouseDragEnd.x),
-					Mathf.Max(mouseDragStart.y, mouseDragEnd.y)
-					);
+		/** Target point of paths */
+		public Transform end;
 
-				RichAI[] ais = GameObject.FindObjectsOfType(typeof(RichAI)) as RichAI[];
-				List<RichAI> ls = new List<RichAI>();
-				for (int i = 0; i < ais.Length; i++) {
-					Vector2 p = Camera.main.WorldToScreenPoint(ais[i].transform.position);
-					//p.y = Screen.height - p.y;
-					if (r.Contains(p)) {
-						ls.Add(ais[i]);
-					}
-				}
-				agents = ls.ToArray();
-			} else {
+		/** Offset from the real path to where it is rendered.
+		 * Used to avoid z-fighting
+		 */
+		public Vector3 pathOffset;
+
+		/** Material used for rendering paths */
+		public Material lineMat;
+
+		/** Material used for rendering result of the ConstantPath */
+		public Material squareMat;
+		public float lineWidth;
+
+		public int searchLength = 1000;
+		public int spread = 100;
+		public float aimStrength = 0;
+
+		Path lastPath = null;
+		FloodPath lastFloodPath = null;
+
+		List<GameObject> lastRender = new List<GameObject>();
+
+		List<Vector3> multipoints = new List<Vector3>();
+
+		// Update is called once per frame
+		void Update () {
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+			// Find the intersection with the y=0 plane
+			Vector3 zeroIntersect = ray.origin + ray.direction * (ray.origin.y / -ray.direction.y);
+
+			end.position = zeroIntersect;
+
+			if (Input.GetMouseButtonUp(0)) {
 				if (Input.GetKey(KeyCode.LeftShift)) {
 					multipoints.Add(zeroIntersect);
 				}
@@ -111,86 +81,172 @@ public class PathTypesDemo : MonoBehaviour {
 					DemoPath();
 				}
 			}
+
+			if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftAlt) && (lastPath == null || lastPath.IsDone())) {
+				DemoPath();
+			}
 		}
 
-		if (Input.GetMouseButton(0) && Input.GetKey(KeyCode.LeftAlt) && (lastPath == null || lastPath.IsDone())) {
-			DemoPath();
+		/** Draw some helpful gui */
+		public void OnGUI () {
+			GUILayout.BeginArea(new Rect(5, 5, 220, Screen.height-10), "", "Box");
+
+			switch (activeDemo) {
+			case DemoMode.ABPath:
+				GUILayout.Label("Basic path. Finds a path from point A to point B."); break;
+			case DemoMode.MultiTargetPath:
+				GUILayout.Label("Multi Target Path. Finds a path quickly from one point to many others in a single search."); break;
+			case DemoMode.RandomPath:
+				GUILayout.Label("Randomized Path. Finds a path with a specified length in a random direction or biased towards some point when using a larger aim strenggth."); break;
+			case DemoMode.FleePath:
+				GUILayout.Label("Flee Path. Tries to flee from a specified point. Remember to set Flee Strength!"); break;
+			case DemoMode.ConstantPath:
+				GUILayout.Label("Finds all nodes which it costs less than some value to reach."); break;
+			case DemoMode.FloodPath:
+				GUILayout.Label("Searches the whole graph from a specific point. FloodPathTracer can then be used to quickly find a path to that point"); break;
+			case DemoMode.FloodPathTracer:
+				GUILayout.Label("Traces a path to where the FloodPath started. Compare the claculation times for this path with ABPath!\nGreat for TD games"); break;
+			}
+
+			GUILayout.Space(5);
+
+			GUILayout.Label("Note that the paths are rendered without ANY post-processing applied, so they might look a bit edgy");
+
+			GUILayout.Space(5);
+
+			GUILayout.Label("Click anywhere to recalculate the path. Hold Alt to continuously recalculate the path while the mouse is pressed.");
+
+			if (activeDemo == DemoMode.ConstantPath || activeDemo == DemoMode.RandomPath || activeDemo == DemoMode.FleePath) {
+				GUILayout.Label("Search Distance ("+searchLength+")");
+				searchLength = Mathf.RoundToInt(GUILayout.HorizontalSlider(searchLength, 0, 100000));
+			}
+
+			if (activeDemo == DemoMode.RandomPath || activeDemo == DemoMode.FleePath) {
+				GUILayout.Label("Spread ("+spread+")");
+				spread = Mathf.RoundToInt(GUILayout.HorizontalSlider(spread, 0, 40000));
+
+				GUILayout.Label((activeDemo == DemoMode.RandomPath ? "Aim strength" : "Flee strength") + " ("+aimStrength+")");
+				aimStrength = GUILayout.HorizontalSlider(aimStrength, 0, 1);
+			}
+
+			if (activeDemo == DemoMode.MultiTargetPath) {
+				GUILayout.Label("Hold shift and click to add new target points. Hold ctr and click to remove all target points");
+			}
+
+			if (GUILayout.Button("A to B path")) activeDemo = DemoMode.ABPath;
+			if (GUILayout.Button("Multi Target Path")) activeDemo = DemoMode.MultiTargetPath;
+			if (GUILayout.Button("Random Path")) activeDemo = DemoMode.RandomPath;
+			if (GUILayout.Button("Flee path")) activeDemo = DemoMode.FleePath;
+			if (GUILayout.Button("Constant Path")) activeDemo = DemoMode.ConstantPath;
+			if (GUILayout.Button("Flood Path")) activeDemo = DemoMode.FloodPath;
+			if (GUILayout.Button("Flood Path Tracer")) activeDemo = DemoMode.FloodPathTracer;
+
+			GUILayout.EndArea();
 		}
-	}
 
-	/** Draw some helpful gui */
-	public void OnGUI () {
-		GUILayout.BeginArea(new Rect(5, 5, 220, Screen.height-10), "", "Box");
+		/** Will be called when the paths have been calculated */
+		public void OnPathComplete (Path p) {
+			// To prevent it from creating new GameObjects when the application is quitting when using multithreading.
+			if (lastRender == null) return;
 
-		switch (activeDemo) {
-		case DemoMode.ABPath:
-			GUILayout.Label("Basic path. Finds a path from point A to point B."); break;
-		case DemoMode.MultiTargetPath:
-			GUILayout.Label("Multi Target Path. Finds a path quickly from one point to many others in a single search."); break;
-		case DemoMode.RandomPath:
-			GUILayout.Label("Randomized Path. Finds a path with a specified length in a random direction or biased towards some point when using a larger aim strenggth."); break;
-		case DemoMode.FleePath:
-			GUILayout.Label("Flee Path. Tries to flee from a specified point. Remember to set Flee Strength!"); break;
-		case DemoMode.ConstantPath:
-			GUILayout.Label("Finds all nodes which it costs less than some value to reach."); break;
-		case DemoMode.FloodPath:
-			GUILayout.Label("Searches the whole graph from a specific point. FloodPathTracer can then be used to quickly find a path to that point"); break;
-		case DemoMode.FloodPathTracer:
-			GUILayout.Label("Traces a path to where the FloodPath started. Compare the claculation times for this path with ABPath!\nGreat for TD games"); break;
-		}
-
-		GUILayout.Space(5);
-
-		GUILayout.Label("Note that the paths are rendered without ANY post-processing applied, so they might look a bit edgy");
-
-		GUILayout.Space(5);
-
-		GUILayout.Label("Click anywhere to recalculate the path. Hold Alt to continuously recalculate the path while the mouse is pressed.");
-
-		if (activeDemo == DemoMode.ConstantPath || activeDemo == DemoMode.RandomPath || activeDemo == DemoMode.FleePath) {
-			GUILayout.Label("Search Distance ("+searchLength+")");
-			searchLength = Mathf.RoundToInt(GUILayout.HorizontalSlider(searchLength, 0, 100000));
-		}
-
-		if (activeDemo == DemoMode.RandomPath || activeDemo == DemoMode.FleePath) {
-			GUILayout.Label("Spread ("+spread+")");
-			spread = Mathf.RoundToInt(GUILayout.HorizontalSlider(spread, 0, 40000));
-
-			GUILayout.Label((activeDemo == DemoMode.RandomPath ? "Aim strength" : "Flee strength") + " ("+aimStrength+")");
-			aimStrength = GUILayout.HorizontalSlider(aimStrength, 0, 1);
-		}
-
-		if (activeDemo == DemoMode.MultiTargetPath) {
-			GUILayout.Label("Hold shift and click to add new target points. Hold ctr and click to remove all target points");
-		}
-
-		if (GUILayout.Button("A to B path")) activeDemo = DemoMode.ABPath;
-		if (GUILayout.Button("Multi Target Path")) activeDemo = DemoMode.MultiTargetPath;
-		if (GUILayout.Button("Random Path")) activeDemo = DemoMode.RandomPath;
-		if (GUILayout.Button("Flee path")) activeDemo = DemoMode.FleePath;
-		if (GUILayout.Button("Constant Path")) activeDemo = DemoMode.ConstantPath;
-		if (GUILayout.Button("Flood Path")) activeDemo = DemoMode.FloodPath;
-		if (GUILayout.Button("Flood Path Tracer")) activeDemo = DemoMode.FloodPathTracer;
-
-		GUILayout.EndArea();
-	}
-
-	/** Get the path back */
-	public void OnPathComplete (Path p) {
-		//To prevent it from creating new GameObjects when the application is quitting when using multithreading.
-		if (lastRender == null) return;
-
-		if (p.error) {
 			ClearPrevious();
-			return;
+
+			if (p.error) return;
+
+			GameObject ob = new GameObject("LineRenderer", typeof(LineRenderer));
+			LineRenderer line = ob.GetComponent<LineRenderer>();
+			line.sharedMaterial = lineMat;
+
+			// How many times can Unity change this API? This is getting ridiculous...
+#if UNITY_5_5_OR_NEWER
+			line.startWidth = lineWidth;
+			line.endWidth = lineWidth;
+#if UNITY_2017_1_OR_NEWER
+			line.positionCount = p.vectorPath.Count;
+#else
+			line.positionCount = p.vectorPath.Count;
+#endif
+#else
+			line.SetWidth(lineWidth, lineWidth);
+			line.SetVertexCount(p.vectorPath.Count);
+#endif
+
+			for (int i = 0; i < p.vectorPath.Count; i++) {
+				line.SetPosition(i, p.vectorPath[i] + pathOffset);
+			}
+
+			lastRender.Add(ob);
 		}
 
+		/** Destroys all previous render objects */
+		void ClearPrevious () {
+			for (int i = 0; i < lastRender.Count; i++) {
+				Destroy(lastRender[i]);
+			}
+			lastRender.Clear();
+		}
 
-		if (p.GetType() == typeof(MultiTargetPath)) {
+		/** Clears renders when the object is destroyed */
+		void OnDestroy () {
+			ClearPrevious();
+			lastRender = null;
+		}
+
+		/** Starts a path specified by PathTypesDemo.activeDemo */
+		void DemoPath () {
+			Path p = null;
+
+			switch (activeDemo) {
+			case DemoMode.ABPath:
+				p = ABPath.Construct(start.position, end.position, OnPathComplete);
+				break;
+			case DemoMode.MultiTargetPath:
+				StartCoroutine(DemoMultiTargetPath());
+				break;
+			case DemoMode.ConstantPath:
+				StartCoroutine(DemoConstantPath());
+				break;
+			case DemoMode.RandomPath:
+				RandomPath rp = RandomPath.Construct(start.position, searchLength, OnPathComplete);
+				rp.spread = spread;
+				rp.aimStrength = aimStrength;
+				rp.aim = end.position;
+
+				p = rp;
+				break;
+			case DemoMode.FleePath:
+				FleePath fp = FleePath.Construct(start.position, end.position, searchLength, OnPathComplete);
+				fp.aimStrength = aimStrength;
+				fp.spread = spread;
+
+				p = fp;
+				break;
+			case DemoMode.FloodPath:
+				p = lastFloodPath = FloodPath.Construct(end.position, null);
+				break;
+			case DemoMode.FloodPathTracer:
+				if (lastFloodPath != null) {
+					FloodPathTracer fpt = FloodPathTracer.Construct(end.position, lastFloodPath, OnPathComplete);
+					p = fpt;
+				}
+				break;
+			}
+
+			if (p != null) {
+				AstarPath.StartPath(p);
+				lastPath = p;
+			}
+		}
+
+		IEnumerator DemoMultiTargetPath () {
+			MultiTargetPath mp = MultiTargetPath.Construct(multipoints.ToArray(), end.position, null, null);
+
+			lastPath = mp;
+			AstarPath.StartPath(mp);
+			yield return StartCoroutine(mp.WaitForPath());
+
 			List<GameObject> unused = new List<GameObject>(lastRender);
 			lastRender.Clear();
-
-			MultiTargetPath mp = p as MultiTargetPath;
 
 			for (int i = 0; i < mp.vectorPaths.Length; i++) {
 				if (mp.vectorPaths[i] == null) continue;
@@ -207,9 +263,19 @@ public class PathTypesDemo : MonoBehaviour {
 
 				LineRenderer lr = ob.GetComponent<LineRenderer>();
 				lr.sharedMaterial = lineMat;
+#if UNITY_5_5_OR_NEWER
+				lr.startWidth = lineWidth;
+				lr.endWidth = lineWidth;
+#if UNITY_2017_1_OR_NEWER
+				lr.positionCount = vpath.Count;
+#else
+				lr.positionCount = vpath.Count;
+#endif
+#else
 				lr.SetWidth(lineWidth, lineWidth);
-
 				lr.SetVertexCount(vpath.Count);
+#endif
+
 				for (int j = 0; j < vpath.Count; j++) {
 					lr.SetPosition(j, vpath[j] + pathOffset);
 				}
@@ -220,42 +286,50 @@ public class PathTypesDemo : MonoBehaviour {
 			for (int i = 0; i < unused.Count; i++) {
 				Destroy(unused[i]);
 			}
-		} else if (p.GetType() == typeof(ConstantPath)) {
-			ClearPrevious();
-			//The following code will build a mesh with a square for each node visited
+		}
 
-			ConstantPath constPath = p as ConstantPath;
+		public IEnumerator DemoConstantPath () {
+			ConstantPath constPath = ConstantPath.Construct(end.position, searchLength, null);
+
+			AstarPath.StartPath(constPath);
+			lastPath = constPath;
+			// Wait for the path to be calculated
+			yield return StartCoroutine(constPath.WaitForPath());
+
+			ClearPrevious();
+
+			// The following code will build a mesh with a square for each node visited
 			List<GraphNode> nodes = constPath.allNodes;
 
 			Mesh mesh = new Mesh();
 
 			List<Vector3> verts = new List<Vector3>();
 
-			bool drawRaysInstead = false;
 
+			#if FALSE
 			// Just some debugging code which selects random points on the nodes
-			/*List<Vector3> pts = Pathfinding.PathUtilities.GetPointsOnNodes (nodes, 20, 0);
-			 * Vector3 avg = Vector3.zero;
-			 * for (int i=0;i<pts.Count;i++) {
-			 *  Debug.DrawRay (pts[i], Vector3.up*5, Color.red, 3);
-			 *  avg += pts[i];
-			 * }
-			 *
-			 * if (pts.Count > 0) avg /= pts.Count;
-			 *
-			 * for (int i=0;i<pts.Count;i++) {
-			 *  pts[i] -= avg;
-			 * }
-			 *
-			 * Pathfinding.PathUtilities.GetPointsAroundPoint (start.position, AstarPath.active.astarData.graphs[0] as IRaycastableGraph, pts, 0, 1);
-			 *
-			 * for (int i=0;i<pts.Count;i++) {
-			 *  Debug.DrawRay (pts[i], Vector3.up*5, Color.blue, 3);
-			 * }*/
+			List<Vector3> pts = Pathfinding.PathUtilities.GetPointsOnNodes(nodes, 20, 0);
+			Vector3 avg = Vector3.zero;
+			for (int i = 0; i < pts.Count; i++) {
+				Debug.DrawRay(pts[i], Vector3.up*5, Color.red, 3);
+				avg += pts[i];
+			}
 
-			//This will loop through the nodes from furthest away to nearest, not really necessary... but why not :D
-			//Note that the reverse does not, as common sense would suggest, loop through from the closest to the furthest away
-			//since is might contain duplicates and only the node duplicate placed at the highest index is guarenteed to be ordered correctly.
+			if (pts.Count > 0) avg /= pts.Count;
+
+			for (int i = 0; i < pts.Count; i++) {
+				pts[i] -= avg;
+			}
+
+			Pathfinding.PathUtilities.GetPointsAroundPoint(start.position, AstarPath.active.data.graphs[0] as IRaycastableGraph, pts, 0, 1);
+
+			for (int i = 0; i < pts.Count; i++) {
+				Debug.DrawRay(pts[i], Vector3.up*5, Color.blue, 3);
+			}
+			#endif
+
+			bool drawRaysInstead = false;
+			// This will loop through the nodes from furthest away to nearest, not really necessary... but why not :D
 			for (int i = nodes.Count-1; i >= 0; i--) {
 				Vector3 pos = (Vector3)nodes[i].position+pathOffset;
 				if (verts.Count == 65000 && !drawRaysInstead) {
@@ -268,7 +342,7 @@ public class PathTypesDemo : MonoBehaviour {
 					continue;
 				}
 
-				//Add vertices in a square
+				// Add vertices in a square
 
 				GridGraph gg = AstarData.GetGraph(nodes[i]) as GridGraph;
 				float scale = 1F;
@@ -281,7 +355,7 @@ public class PathTypesDemo : MonoBehaviour {
 				verts.Add(pos+new Vector3(0.5F, 0, 0.5F)*scale);
 			}
 
-			//Build triangles for the squares
+			// Build triangles for the squares
 			Vector3[] vs = verts.ToArray();
 			int[] tris = new int[(3*vs.Length)/2];
 			for (int i = 0, j = 0; i < vs.Length; j += 6, i += 4) {
@@ -295,7 +369,7 @@ public class PathTypesDemo : MonoBehaviour {
 			}
 
 			Vector2[] uv = new Vector2[vs.Length];
-			//Set up some basic UV
+			// Set up some basic UV
 			for (int i = 0; i < uv.Length; i += 4) {
 				uv[i] = new Vector2(0, 0);
 				uv[i+1] = new Vector2(1, 0);
@@ -315,104 +389,6 @@ public class PathTypesDemo : MonoBehaviour {
 			re.material = squareMat;
 
 			lastRender.Add(go);
-		} else {
-			ClearPrevious();
-
-			GameObject ob = new GameObject("LineRenderer", typeof(LineRenderer));
-			LineRenderer lr = ob.GetComponent<LineRenderer>();
-			lr.sharedMaterial = lineMat;
-			lr.SetWidth(lineWidth, lineWidth);
-
-			lr.SetVertexCount(p.vectorPath.Count);
-			for (int i = 0; i < p.vectorPath.Count; i++) {
-				lr.SetPosition(i, p.vectorPath[i] + pathOffset);
-			}
-
-			lastRender.Add(ob);
 		}
-	}
-
-	/** Destroys all previous render objects */
-	void ClearPrevious () {
-		for (int i = 0; i < lastRender.Count; i++) {
-			Destroy(lastRender[i]);
-		}
-		lastRender.Clear();
-	}
-
-	/** Clears renders on application quit */
-	void OnApplicationQuit () {
-		ClearPrevious();
-		lastRender = null;
-	}
-
-	private FloodPath lastFlood = null;
-
-	/** Starts a path specified by PathTypesDemo.activeDemo */
-	void DemoPath () {
-		Path p = null;
-
-		if (activeDemo == DemoMode.ABPath) {
-			p = ABPath.Construct(start.position, end.position, OnPathComplete);
-
-			if (agents != null && agents.Length > 0) {
-				List<Vector3> pts = Pathfinding.Util.ListPool<Vector3>.Claim(agents.Length);
-				Vector3 avg = Vector3.zero;
-				for (int i = 0; i < agents.Length; i++) {
-					pts.Add(agents[i].transform.position);
-					avg += pts[i];
-				}
-				avg /= pts.Count;
-				for (int i = 0; i < agents.Length; i++) pts[i] -= avg;
-
-				Pathfinding.PathUtilities.GetPointsAroundPoint(end.position, AstarPath.active.graphs[0] as IRaycastableGraph, pts, 0, 0.2f);
-				for (int i = 0; i < agents.Length; i++) {
-					if (agents[i] == null) continue;
-
-					agents[i].target.position = pts[i];
-					agents[i].UpdatePath();
-				}
-			}
-		} else if (activeDemo == DemoMode.MultiTargetPath) {
-			MultiTargetPath mp = MultiTargetPath.Construct(multipoints.ToArray(), end.position, null, OnPathComplete);
-			p = mp;
-		} else if (activeDemo == DemoMode.RandomPath) {
-			RandomPath rp = RandomPath.Construct(start.position, searchLength, OnPathComplete);
-			rp.spread = spread;
-			rp.aimStrength = aimStrength;
-			rp.aim = end.position;
-
-			p = rp;
-		} else if (activeDemo == DemoMode.FleePath) {
-			FleePath fp = FleePath.Construct(start.position, end.position, searchLength, OnPathComplete);
-			fp.aimStrength = aimStrength;
-			fp.spread = spread;
-
-			p = fp;
-		} else if (activeDemo == DemoMode.ConstantPath) {
-			StartCoroutine(CalculateConstantPath());
-			p = null;
-		} else if (activeDemo == DemoMode.FloodPath) {
-			FloodPath fp = FloodPath.Construct(end.position, null);
-			lastFlood = fp;
-			p = fp;
-		} else if (activeDemo == DemoMode.FloodPathTracer && lastFlood != null) {
-			FloodPathTracer fp = FloodPathTracer.Construct(end.position, lastFlood, OnPathComplete);
-
-			p = fp;
-		}
-
-		if (p != null) {
-			AstarPath.StartPath(p);
-			lastPath = p;
-		}
-	}
-
-	public IEnumerator CalculateConstantPath () {
-		ConstantPath constPath = ConstantPath.Construct(end.position, searchLength, OnPathComplete);
-
-		AstarPath.StartPath(constPath);
-		lastPath = constPath;
-		yield return constPath.WaitForPath();
 	}
 }

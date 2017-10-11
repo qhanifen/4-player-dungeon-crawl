@@ -1418,6 +1418,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52e10183f1ec74d27ba5e19d5a2242c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  version: 1
+  uniqueID: 0
   wallHeight: 5
 --- !u!114 &99
 MonoBehaviour:
@@ -1430,17 +1432,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1764de1de43cc4d19af52679d3eaae06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doubleBuffering: 0
-  interpolation: 1
+  version: 1
   desiredSimulationFPS: 20
-  workerThreads: 1
-  qualityCutoff: .0500000007
-  stepScale: 1.5
-  incompressibility: 200
-  wallThickness: 6
-  desiredVelocityWeight: .400000006
-  algorithm: 1
-  oversampling: 0
+  workerThreads: -1
+  doubleBuffering: 0
+  symmetryBreakingBias: .100000001
+  movementPlane: 0
 --- !u!114 &101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1523,8 +1520,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78396926cbbfc4ac3b48fc5fc34a87d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  astarData:
-    dataString: UEsDBBQAAAgIAAAIIewSxgWKywEAABUDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlUstyozAQ/BedCQXm7eM6qeQQx1vgQ2pTexijAVQRkleI+JHyv++Aje2t5UJNT09L061vVveCs/k3+wLZI5szz48rPytTL5v5mG6ShyxOwshDztMqSjZJxU4OKxswUFo0OXDRd2yeEKaV1b1Zwv7JGG3YfEYYSlmII+n65+IFRd1YNvdc6u5AfsJG4gTGN2ghRbsZJVrYF1JvSSKauclYP/EaX1HVtiGGR5BQOdZCq8tRHn0OQy6sNmsh8QzHocPspXontdC/1b+ojqhWCAY7W9CvbFZKHt6pU4Hs0GF9h4NYdwUMSvwCZZ8NbJuiNxWUuNR8MPFRv2mb459eGGTEhI68onMWWkrB0dyJTK0lds0gbk1/D6/RGBDqf/7a4I1eXnTzqfuIFoQcvHBYpU2J/IfuFe8WqIgw5L2nEBx2IF/cWehnYeqwI0Gnf/ln60Z2FHpummTxOBR4bpB40TgTRZ4bBVl6GsLpPu8e00NAmIV6OcIfvx3WNXo3bLrqrRQKr2sN+Bt5t9BKYWkpy+tu9uxAAe12ijJwmFDCCpA/UYG0h3EXeiRqGlLQDjnkWJIjY0AUAzewexbHVl+1hap0UZKTajUOj7c5/QVQSwMEFAAACAgAAAgh7JsRrI14AAAAhQAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQEdjLEOgjAUAP/lzdi0IrRldXAzxtUwFN4rdPCV0GJijP8udbvh7j7wojWFyNBBLbSooYJpdcucoFM7bgF3eoBUrVd2NNIeFZlBH2yrT40kROMbPWgPfQX5vdDVPelf3FyefWAMPIk7jS7lS/kWjyPSOW6ciyj77w9QSwECLQAUAAAICAAACCHsEsYFissBAAAVAwAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsmxGsjXgAAACFAAAACQAkAAAAAAAAAAAAAAAYAgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAANsCAAAAAA==
+  version: 1
+  data:
+    dataString: UEsDBBQAAAgIAAAIIewTdCP42gEAAJkDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1Uk1v2zAM/SuBz6thJ/7ccWnRHZZmiHMoWuzASLQtVJYyWW7SFP3vE/2xOdjmC81HvUfqie8eq8EAs2h2wEXXep8X6aeFx7SyujMbON8Zo41Dl4SilIW4oEtDl55AvsBB4lcUVW0dmMzAtRTNYeQ1cC6kPhIvXvrpgNzxCr+hqmxNpwIChdphJbSaegTuczhyYbXZC4ljIYkcasf8kVSjcIY8ERIT0rVINLpVCbJFBxmU+ArK3hs41kVnSmC40ZxkvVv9oO0Of3bCoEdnoXXGOMW1llJwNFdCU3GDbd23sKa7KuzRGBDqX5y9wTmFjfq7qX6LFoTsPejdal/c//vCewXZ0ag3q8UH3RiqzVB7/kHp0LCA5vjbqxW11Ras83XQOLtAqm9jvFDs5UptGPIvulO8XaNycn8zEn8ZhXmU/Zc49h1pcRT4WZonI3sV+Ks0iEdyHAd+vMqzXqOt9Yms3HZWCoUz16jy4J5orZVCRheZWTfRxqec0RSCwdYWLrB6q+Tb49OsWnWCX3vqBWFShjnLgnwZYnZIb/IkjeIAOc/KOD2kpdcPKpSwAuR3VCDtZKLbbvVnKAVNr7hD5l60XzXaJ27gdC8ujZ7NL1SpC+bWQW0HiX7Aj19QSwMEFAAACAgAAAgh7Mb89WFuAAAAeQAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPQM9BRUEovSizIKAYKGII4pZkpIHa0koGhWZqhZbKFgaWRYapFkrmupZm5ialBakqKRZqpeZJ5mlIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrpeUGpyYnGJO8hwpdhaAFBLAQItABQAAAgIAAAIIewTdCP42gEAAJkDAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIezG/PVhbgAAAHkAAAAJACQAAAAAAAAAAAAAACcCAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAA4AIAAAAA
     upgradeData: 
     data_backup: 
     file_cachedStartup: {fileID: 0}
@@ -1551,7 +1549,6 @@ MonoBehaviour:
     _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: .5}
     _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: .5}
     _MeshEdgeColor: {r: 0, g: 0, b: 0, a: .5}
-    _MeshColor: {r: .125, g: .68599999, b: 0, a: .189999998}
     _AreaColors: []
   tagNames:
   - Basic Ground
@@ -1591,15 +1588,14 @@ MonoBehaviour:
   threadCount: -1
   maxFrameTime: 10
   minAreaSize: 10
-  limitGraphUpdates: 1
-  maxGraphUpdateFreq: .200000003
+  batchGraphUpdates: 0
+  graphUpdateBatchingInterval: .200000003
   euclideanEmbedding:
     mode: 0
     seed: 0
     pivotPointRoot: {fileID: 0}
     spreadOutCount: 1
   showGraphs: 1
-  lastUniqueAreaIndex: 1
 --- !u!114 &107
 MonoBehaviour:
   m_ObjectHideFlags: 0

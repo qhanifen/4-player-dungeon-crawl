@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Menu Camera
   layers:
   - Default
   - TransparentFX
@@ -16,10 +17,10 @@ TagManager:
   - Player
   - Enemy
   - Dungeon
-  - 
-  - 
-  - 
-  - 
+  - Render Camera 1
+  - Render Camera 2
+  - Render Camera 3
+  - Render Camera 4
   - 
   - 
   - 

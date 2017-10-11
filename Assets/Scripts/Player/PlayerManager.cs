@@ -37,7 +37,28 @@ public class PlayerManager : MonoSingletonPersistent<PlayerManager>
             }            
         }
         return playerPositions;
-    }    
+    }
+
+    public Transform GetClosestHero(Transform pos)
+    {
+        int hero = 0;
+        float dist = 0f;
+        for(int i = 0; i < playerControllers.Count; i++)
+        {
+            float calcDist = (playerControllers[i].transform.position - pos.position).sqrMagnitude;
+            if(dist == 0f)
+            {
+                dist = calcDist;
+                hero = i;
+                break;
+            }
+            if(calcDist < dist)
+            {
+                hero = i;
+            }
+        }
+        return playerControllers[hero].transform;
+    }
 
     public static Hero GetHero(int index)
     {

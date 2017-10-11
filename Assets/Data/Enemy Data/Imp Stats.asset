@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Name: Imp Stats
   m_EditorClassIdentifier: 
   health: 50
-  speed: 2
-  turnSpeed: 90
+  speed: 6
+  turnSpeed: 15
   attackLayerMask:
     serializedVersion: 2
     m_Bits: 256

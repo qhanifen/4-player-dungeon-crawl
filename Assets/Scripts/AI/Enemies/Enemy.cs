@@ -40,7 +40,7 @@ public class Enemy : AIBehavior, ITargetable, IDamageable
 
     #region ITargetable implementation
 
-    public Transform GetTarget
+    public Transform Target
     {
         get
         {
@@ -77,12 +77,7 @@ public class Enemy : AIBehavior, ITargetable, IDamageable
         anim.SetBool("Dead", true);
     }
 
-    #endregion    
-
-    public void UpdateTarget(MultiTargetPath p)
-    {
-        //target = PlayerManager.GetHero(p.chosenTarget);
-    }
+    #endregion        
 
     #region Combat Methods
 

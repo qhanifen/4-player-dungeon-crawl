@@ -1,14 +1,11 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using Pathfinding;
-using Pathfinding.Voxels;
 #if NETFX_CORE && !UNITY_EDITOR
 //using MarkerMetro.Unity.WinLegacy.IO;
 #endif
 
 namespace Pathfinding.Voxels {
-	/** \astarpro */
+	/** Stores a voxel field. \astarpro */
 	public class VoxelArea {
 		public const uint MaxHeight = 65536;
 		public const int MaxHeightInt = 65536;
@@ -322,7 +319,14 @@ namespace Pathfinding.Voxels {
 		}
 	}
 
-	/** Represents a custom mesh.
+	/** Represents a mesh. \deprecated Use RasterizationMesh instead */
+	[System.Obsolete("Use RasterizationMesh instead")]
+	public class ExtraMesh : RasterizationMesh {
+		public ExtraMesh (Vector3[] vertices, int[] triangles, Bounds bounds) : base(vertices, triangles, bounds) {}
+		public ExtraMesh (Vector3[] vertices, int[] triangles, Bounds bounds, Matrix4x4 matrix) : base(vertices, triangles, bounds, matrix) {}
+	}
+
+	/** Represents a mesh which will be rasterized.
 	 * The vertices will be multiplied with the matrix when rasterizing it to voxels.
 	 * The vertices and triangles array may be used in multiple instances, it is not changed when voxelizing.
 	 *
@@ -330,7 +334,7 @@ namespace Pathfinding.Voxels {
 	 *
 	 * \astarpro
 	 */
-	public struct ExtraMesh {
+	public class RasterizationMesh {
 		/** Source of the mesh.
 		 * May be null if the source was not a mesh filter
 		 */
@@ -340,25 +344,47 @@ namespace Pathfinding.Voxels {
 		public Vector3[] vertices;
 		public int[] triangles;
 
+		/** Number of vertices in the #vertices array.
+		 * The vertices array is often pooled and then it sometimes makes sense to use a larger array than is actually necessary.
+		 */
+		public int numVertices;
+
+		/** Number of triangles in the #triangles array.
+		 * The triangles array is often pooled and then it sometimes makes sense to use a larger array than is actually necessary.
+		 */
+		public int numTriangles;
+
 		/** World bounds of the mesh. Assumed to already be multiplied with the matrix */
 		public Bounds bounds;
 
 		public Matrix4x4 matrix;
 
-		public ExtraMesh (Vector3[] v, int[] t, Bounds b) {
+		/** If true, the vertex and triangle arrays will be pooled after they have been used.
+		 * Should be used only if the vertex and triangle arrays were originally taken from a pool.
+		 */
+		public bool pool;
+
+		public RasterizationMesh () {
+		}
+
+		public RasterizationMesh (Vector3[] vertices, int[] triangles, Bounds bounds) {
 			matrix = Matrix4x4.identity;
-			vertices = v;
-			triangles = t;
-			bounds = b;
+			this.vertices = vertices;
+			this.numVertices = vertices.Length;
+			this.triangles = triangles;
+			this.numTriangles = triangles.Length;
+			this.bounds = bounds;
 			original = null;
 			area = 0;
 		}
 
-		public ExtraMesh (Vector3[] v, int[] t, Bounds b, Matrix4x4 matrix) {
+		public RasterizationMesh (Vector3[] vertices, int[] triangles, Bounds bounds, Matrix4x4 matrix) {
 			this.matrix = matrix;
-			vertices = v;
-			triangles = t;
-			bounds = b;
+			this.vertices = vertices;
+			this.numVertices = vertices.Length;
+			this.triangles = triangles;
+			this.numTriangles = triangles.Length;
+			this.bounds = bounds;
 			original = null;
 			area = 0;
 		}
@@ -367,11 +393,20 @@ namespace Pathfinding.Voxels {
 		public void RecalculateBounds () {
 			Bounds b = new Bounds(matrix.MultiplyPoint3x4(vertices[0]), Vector3.zero);
 
-			for (int i = 1; i < vertices.Length; i++) {
+			for (int i = 1; i < numVertices; i++) {
 				b.Encapsulate(matrix.MultiplyPoint3x4(vertices[i]));
 			}
-			//Assigned here to avoid changing bounds if vertices would happen to be null
+
+			// Assigned here to avoid changing bounds if vertices would happen to be null
 			bounds = b;
+		}
+
+		/** Pool the #vertex and #triangle arrays if the #pool field is true */
+		public void Pool () {
+			if (pool) {
+				Util.ArrayPool<int>.Release(ref triangles);
+				Util.ArrayPool<Vector3>.Release(ref vertices);
+			}
 		}
 	}
 
@@ -399,8 +434,16 @@ namespace Pathfinding.Voxels {
 	 * \astarpro
 	 */
 	public struct VoxelMesh {
+		/** Vertices of the mesh */
 		public Int3[] verts;
+
+		/** Triangles of the mesh.
+		 * Each element points to a vertex in the #verts array
+		 */
 		public int[] tris;
+
+		/** Area index for each triangle */
+		public int[] areas;
 	}
 
 	/** VoxelCell used for recast graphs.
