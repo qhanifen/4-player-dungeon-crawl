@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationType: 1
   animationParameter: Dead
-  toggle: 0
+  toggle: 1
   amount: 0

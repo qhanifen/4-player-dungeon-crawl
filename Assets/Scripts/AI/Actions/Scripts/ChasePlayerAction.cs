@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "AI/Actions/Chase Player")]
-public class ChasePlayer : AIAction
+public class ChasePlayerAction : AIAction
 {
     public override void Act(StateController controller)
     { 

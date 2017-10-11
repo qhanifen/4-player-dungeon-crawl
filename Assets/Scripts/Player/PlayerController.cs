@@ -31,17 +31,17 @@ public class PlayerController : MonoBehaviour
     {
         if (player != null)
         {
-            float leftAxisX = player.GetAxis("Move Horizontal");
-            float leftAxisY = player.GetAxis("Move Vertical");
-            float rightAxisX = player.GetAxis("Look Horizontal");
-            float rightAxisY = player.GetAxis("Look Vertical");
+            float leftAxisX = player.GetAxis("LSH");
+            float leftAxisY = player.GetAxis("LSV");
+            float rightAxisX = player.GetAxis("RSH");
+            float rightAxisY = player.GetAxis("RSV");
 
             Vector3 dir = new Vector3(leftAxisX, 0, leftAxisY);
             Vector3 lookDir = new Vector3(rightAxisX, 0, rightAxisY);
 
             Movement(dir, lookDir);
 
-            if (player.GetButton("Fire"))
+            if (player.GetButton("Attack"))
             {
                 hero.Attack();
                 anim.SetTrigger("Attack");
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("Moving", false);
         }
 
-        GetTarget();
+        //GetTarget();
     }
 
     void GetTarget()
