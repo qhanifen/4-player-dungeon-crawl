@@ -18,10 +18,9 @@ public class PlayerController : MonoBehaviour
     
     // Use this for initialization
     void Start()
-    {
-        hero = this.GetComponent<Hero>();
+    {   
         anim = hero.GetComponent<Animator>();
-        //Inject Player later from PlayerManager
+        //Check for script execution order error with PlayerManager.AssignPlayers
         player = ReInput.players.GetPlayer(playerID);
         active = true;
     }

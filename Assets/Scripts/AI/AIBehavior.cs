@@ -65,7 +65,7 @@ public class AIBehavior : MonoBehaviour
 
     public virtual void GetTarget()
     {
-        target = PlayerManager.instance.GetClosestHero(transform);
+        target = GameManager.instance.GetClosestHero(transform);
     }
 
     #region AStar Methods

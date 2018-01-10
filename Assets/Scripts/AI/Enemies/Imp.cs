@@ -24,7 +24,7 @@ public class Imp : Enemy
             if (path != null)
             {
                 MultiTargetPath p = (MultiTargetPath)path;
-                target = PlayerManager.GetHero(p.chosenTarget).transform;
+                target = GameManager.GetHero(p.chosenTarget).transform;
             }
             else
             {

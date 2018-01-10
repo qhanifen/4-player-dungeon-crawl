@@ -5,7 +5,7 @@ using Rewired;
 public class PlayerManager : MonoSingletonPersistent<PlayerManager> 
 {
     public HeroesList heroesList;
-    public List<PlayerController> playerControllers;
+    public List<PlayerEntity> players;
 
 	public enum ControlType
 	{
@@ -23,47 +23,21 @@ public class PlayerManager : MonoSingletonPersistent<PlayerManager>
 
     public void SetPlayerHero(int playerID, int heroID)
     {
-        playerControllers[playerID].hero = heroesList.heroes[heroID];
+        players[playerID].heroID = heroID;
     }
 
     public Vector3[] GetHeroPositions()
     {
-        Vector3[] playerPositions = new Vector3[playerControllers.Count];
+        Vector3[] playerPositions = new Vector3[players.Count];
         for(int i=0; i< playerPositions.Length; i++)
         {
-            if(playerControllers[i] != null)
+            if(players[i] != null)
             {
-                playerPositions[i] = playerControllers[i].hero.transform.position;
+                playerPositions[i] = GameManager.instance.heroes[i].transform.position;
             }            
         }
         return playerPositions;
-    }
-
-    public Transform GetClosestHero(Transform pos)
-    {
-        int hero = 0;
-        float dist = 0f;
-        for(int i = 0; i < playerControllers.Count; i++)
-        {
-            float calcDist = (playerControllers[i].transform.position - pos.position).sqrMagnitude;
-            if(dist == 0f)
-            {
-                dist = calcDist;
-                hero = i;
-                break;
-            }
-            if(calcDist < dist)
-            {
-                hero = i;
-            }
-        }
-        return playerControllers[hero].transform;
-    }
-
-    public static Hero GetHero(int index)
-    {
-        return instance.playerControllers[index].hero;
-    }
+    }   
 
     private void AssignPlayers()
     {
@@ -71,8 +45,9 @@ public class PlayerManager : MonoSingletonPersistent<PlayerManager>
         for (int i = 0; i < players.Count; i++)
         {
             Debug.Log(players[i].name);
-            playerControllers[i].player = players[i];
+            this.players[i].playerID = i;    
         }
+
     }
 
     private void ToggleControllerActive(ControllerStatusChangedEventArgs obj, bool toggle)
@@ -83,11 +58,11 @@ public class PlayerManager : MonoSingletonPersistent<PlayerManager>
             int playerID = player.id;
             if (player.controllers.ContainsController(obj.controllerType, obj.controllerId))
             {
-                for (int i = 0; i < playerControllers.Count; i++)
+                for (int i = 0; i < players.Count; i++)
                 {
-                    if (playerControllers[i].playerID == playerID)
+                    if (players[i].playerID == playerID)
                     {
-                        playerControllers[i].active = toggle;
+                        players[i].playerController.active = toggle;
 
                         string connecitonStatus = toggle ? "connected" : "disconnected";
                         Debug.Log("Player " + obj.controllerId + " " + connecitonStatus);

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
 public class CameraController : MonoBehaviour {
 
     #region Camera Variables
@@ -12,6 +11,7 @@ public class CameraController : MonoBehaviour {
     public float maxZDistance = 50f;
     public float cameraPanSpeed = 7.0f;
     public float cameraZoomSpeed = 5.0f;
+    public float cameraDampTime = .2f;
     public float cameraAngle = 55f;
     #endregion
 
@@ -98,7 +98,7 @@ public class CameraController : MonoBehaviour {
     }
 #endif
 
-    void Update()
+    void FixedUpdate()
     {
         CheckClosestRoom();
         AdjustCameraView();
@@ -165,6 +165,7 @@ public class CameraController : MonoBehaviour {
     {
         //To do: Add Lerped Movement Speed
         //To do: Add camera Zoom In/Out
+        //To do: fix zooming error
         focalVector += deltaVector * cameraPanSpeed * Time.deltaTime;
 
         //cameraZoom = trackedObjectsInView ? -1 : 1;
@@ -184,8 +185,8 @@ public class CameraController : MonoBehaviour {
         {
             cameraZoom = Mathf.InverseLerp(0, maxBoundsDelta, Mathf.Min(deltaX, deltaY));
         }
-        //cameraDistance += cameraZoom * Time.deltaTime;
-        cameraDistance = Mathf.Lerp(minZDistance, maxZDistance, cameraZoom);
+        float cameraDesired = Mathf.Lerp(minZDistance, maxZDistance, cameraZoom);
+        cameraDistance = Mathf.SmoothDamp(cameraDistance, cameraDesired, ref cameraZoomSpeed, cameraDampTime);
         transform.position = focalVector + (cameraAngleVector * cameraDistance);
 
         //Testing purposes, remove if necessary

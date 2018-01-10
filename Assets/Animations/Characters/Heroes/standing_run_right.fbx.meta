@@ -152,12 +152,12 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Copied Avatar Rig Configuration mis-match. Transform hierarchy
+      does not match:\n\tTransform 'RigPelvis' for human bone 'Hips' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
-    animationRetargetingWarnings: "\nRetargeting quality report for clip 'mixamo.com':\n\tRetargeting
-      quality is good. No significant differences with original animation were found.\n"
+    animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 1
     animationCompression: 3
     animationRotationError: 0.5
