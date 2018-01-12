@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
+public class Hero : PlayerController, ITargetable, IDamageable, IHealable {
     
     public PlayerController controller;
 

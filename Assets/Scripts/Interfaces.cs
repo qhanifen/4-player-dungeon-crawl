@@ -47,6 +47,13 @@ public interface IProjectile
     void SetTarget(Transform target);
     void OnTriggerEnter(Collider other);
 }
+#region Internal
+public interface ISystem
+{
+    bool Initialized { get; set; }
+    void Initialize();
+}
+#endregion
 
 #region AI 
 public interface IChaser

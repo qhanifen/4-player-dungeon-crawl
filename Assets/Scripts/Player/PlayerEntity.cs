@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Rewired;
+﻿using Rewired;
 
 public class PlayerEntity
 {
@@ -9,4 +7,11 @@ public class PlayerEntity
     public PlayerController playerController;
 
     public int heroID;
+
+    public PlayerEntity(int _playerID, Player _player)
+    {
+        playerID = _playerID;
+        player = _player;
+        playerController = new PlayerController();
+    }
 }

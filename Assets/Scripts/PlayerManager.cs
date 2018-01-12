@@ -2,24 +2,25 @@
 using System.Collections.Generic;
 using Rewired;
 
-public class PlayerManager : MonoSingletonPersistent<PlayerManager> 
+public class PlayerManager : MonoSingletonPersistent<PlayerManager>, ISystem
 {
     public HeroesList heroesList;
     public List<PlayerEntity> players;
 
-	public enum ControlType
-	{
-		InMenu,
-		InGame
-	}
-
-    void Start()
+    public bool Initialized { get { return m_initialized; } set { m_initialized = value; } }
+    bool m_initialized = false;
+    
+    ////Encapsulate any starting methods here
+    public void Initialize()
     {
         //playerControllers = new List<PlayerController>();
         ReInput.ControllerConnectedEvent += ReInput_ControllerConnectedEvent;
         ReInput.ControllerDisconnectedEvent += ReInput_ControllerDisconnectedEvent;
+        players = new List<PlayerEntity>();
         AssignPlayers();
-	}
+        Initialized = true;
+        Debug.Log("PlayerManager initialized.");
+    }
 
     public void SetPlayerHero(int playerID, int heroID)
     {
@@ -41,13 +42,13 @@ public class PlayerManager : MonoSingletonPersistent<PlayerManager>
 
     private void AssignPlayers()
     {
-        IList<Player> players = ReInput.players.GetPlayers();        
-        for (int i = 0; i < players.Count; i++)
+        IList<Player> playerList = ReInput.players.GetPlayers();        
+        for (int i = 0; i < playerList.Count; i++)
         {
-            Debug.Log(players[i].name);
-            this.players[i].playerID = i;    
+            Debug.Log(playerList[i].name);
+            PlayerEntity player = new PlayerEntity(i, playerList[i]);
+            players.Add(player);
         }
-
     }
 
     private void ToggleControllerActive(ControllerStatusChangedEventArgs obj, bool toggle)

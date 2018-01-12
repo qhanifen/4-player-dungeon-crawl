@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[System.Serializable]
 public class MonoSingletonPersistent<T> : MonoBehaviour where T : MonoBehaviour
 {
     public static T instance { get; private set; }
@@ -14,6 +15,6 @@ public class MonoSingletonPersistent<T> : MonoBehaviour where T : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }        
+        }
     }
 }
