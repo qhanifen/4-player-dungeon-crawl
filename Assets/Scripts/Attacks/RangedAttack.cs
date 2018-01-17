@@ -19,9 +19,9 @@ public class RangedAttack : Attack {
             case Projectile.MissleType.Projectile:
                 break;
             case Projectile.MissleType.Homing:
-                if (hero.target != null)
+                if (hero.controller.target != null)
                 {
-                    shot.SetTarget(hero.target);
+                    shot.SetTarget(hero.controller.target);
                 }
                 break;
         }

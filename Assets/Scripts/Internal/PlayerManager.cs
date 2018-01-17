@@ -12,8 +12,7 @@ public class PlayerManager : MonoSingletonPersistent<PlayerManager>, ISystem
     
     ////Encapsulate any starting methods here
     public void Initialize()
-    {
-        //playerControllers = new List<PlayerController>();
+    {        
         ReInput.ControllerConnectedEvent += ReInput_ControllerConnectedEvent;
         ReInput.ControllerDisconnectedEvent += ReInput_ControllerDisconnectedEvent;
         players = new List<PlayerEntity>();

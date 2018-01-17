@@ -4,7 +4,8 @@ using UnityEngine;
 public class PlayerSelectMenu : MonoBehaviour {
 
     public int ID;
-    public Player player;
+    public PlayerEntity playerEntity;
+    public bool playerReady;
 
     private void Start()
     {
@@ -13,22 +14,22 @@ public class PlayerSelectMenu : MonoBehaviour {
 
     private void Update()
     {
-        if (player != null)
+        if (playerEntity != null && playerEntity.active)
         {
             GetPlayerInput();
         }
     }
 
 
-    public void AssignPlayer(Player assignedPlayer)
+    public void AssignPlayer(PlayerEntity assignedPlayer)
     {
-        player = assignedPlayer;
+        playerEntity = assignedPlayer;
     }
 
     void GetPlayerInput()
     {
-        float leftAxisX = player.GetAxis("Move Horizontal");
-        float leftAxisY = player.GetAxis("Move Vertical");
+        float leftAxisX = playerEntity.rewiredPlayer.GetAxis("Move Horizontal");
+        float leftAxisY = playerEntity.rewiredPlayer.GetAxis("Move Vertical");
     }
     
 }

@@ -480,7 +480,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 0.828, a: 1}
   m_Intensity: 4.31
-  m_Range: 1.2214628
+  m_Range: 1.25
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -1931,7 +1931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10efa70eea88e69459c632aac286892d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useAllRewiredGamePlayers: 1
+  useAllRewiredGamePlayers: 0
   useRewiredSystemPlayer: 1
   rewiredPlayerIds: 03000000
   moveOneElementPerAxisPress: 0
@@ -2000,7 +2000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10efa70eea88e69459c632aac286892d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useAllRewiredGamePlayers: 1
+  useAllRewiredGamePlayers: 0
   useRewiredSystemPlayer: 1
   rewiredPlayerIds: 02000000
   moveOneElementPerAxisPress: 0
@@ -2069,7 +2069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10efa70eea88e69459c632aac286892d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useAllRewiredGamePlayers: 1
+  useAllRewiredGamePlayers: 0
   useRewiredSystemPlayer: 1
   rewiredPlayerIds: 00000000
   moveOneElementPerAxisPress: 0
@@ -3593,7 +3593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10efa70eea88e69459c632aac286892d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useAllRewiredGamePlayers: 1
+  useAllRewiredGamePlayers: 0
   useRewiredSystemPlayer: 1
   rewiredPlayerIds: 01000000
   moveOneElementPerAxisPress: 0
@@ -4666,6 +4666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
+  playerReady: 0
 --- !u!114 &1156754000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8180,6 +8181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 3
+  playerReady: 0
 --- !u!114 &1883261985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8469,6 +8471,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2
+  playerReady: 0
 --- !u!114 &2050831019
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8703,6 +8706,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1
+  playerReady: 0
 --- !u!114 &2083595412
 MonoBehaviour:
   m_ObjectHideFlags: 0

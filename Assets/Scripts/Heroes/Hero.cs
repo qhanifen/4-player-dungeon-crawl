@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-public class Hero : PlayerController, ITargetable, IDamageable, IHealable {
+public class Hero : MonoBehaviour, ITargetable, IDamageable, IHealable {
     
     public PlayerController controller;
 
@@ -9,20 +9,17 @@ public class Hero : PlayerController, ITargetable, IDamageable, IHealable {
     public HeroAbilities abilities;
 
 	public string heroName;
-	public int health = 100;
-    public float runSpeed = 10.0f;
-    public float rotationSpeed = 8.0f;
+	public int health = 100;    
 
     public float attackTimer = 0.0f;
 
 	public Transform firePoint;
 	public Projectile defaultShot;
-
-	public Transform target = null;
         
     void Start ()
 	{        
 	}
+
 
 	public void Attack()
 	{

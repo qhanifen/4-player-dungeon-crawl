@@ -17,7 +17,7 @@ public class CameraController : MonoBehaviour {
 
     public List<Transform> roomFocalPoints;
     public Transform focusedRoom;
-    public List<GameObject> trackedObjects;
+    public List<Transform> trackedObjects;
     public bool trackedObjectsInView;
     public Rect cameraRect;
     public Rect objectBounds;
@@ -90,9 +90,9 @@ public class CameraController : MonoBehaviour {
         color = Color.blue;
         tex.SetPixel(0, 0, color);
         tex.Apply();
-        foreach (GameObject obj in trackedObjects)
+        for (int i = 0; i < trackedObjects.Count; i++)
         {
-            screenPos = cam.WorldToScreenPoint(obj.transform.position);
+            screenPos = cam.WorldToScreenPoint(trackedObjects[i].position);
             GUI.DrawTexture(new Rect(new Vector2(screenPos.x, Screen.height - screenPos.y), new Vector2(5, 5)), tex);
         }
     }

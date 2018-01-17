@@ -31,9 +31,9 @@ public class GameManager : MonoSingletonPersistent<GameManager>, ISystem
     {
         foreach(PlayerEntity player in PlayerManager.instance.players)
         {
-            PlayerController controller = Instantiate(heroesList.heroes[player.heroID], Vector3.zero, Quaternion.identity);
+            PlayerController controller = Instantiate(player.playerController, LevelManager.instance.spawnPosition.position, Quaternion.identity);
             player.playerController = controller;
-            Camera.main.GetComponent<CameraController>().trackedObjects.Add(controller.gameObject);            
+            Camera.main.GetComponent<CameraController>().trackedObjects.Add(controller.transform);            
         }
     }
 
