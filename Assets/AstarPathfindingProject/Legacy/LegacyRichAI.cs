@@ -25,7 +25,7 @@ namespace Pathfinding.Legacy {
 
 		/** Current velocity of the agent.
 		 * Includes eventual velocity due to gravity */
-		Vector3 velocity;
+		new Vector3 velocity;
 
 		Vector3 lastTargetPoint;
 		Vector3 currentTargetDirection;
@@ -101,7 +101,7 @@ namespace Pathfinding.Legacy {
 					float magn = dir.magnitude;
 
 					//Write out for other scripts to read
-					distanceToWaypoint = magn;
+					distanceToSteeringTarget = magn;
 
 					//Normalize
 					dir = magn == 0 ? Vector3.zero : dir/magn;
@@ -233,7 +233,7 @@ namespace Pathfinding.Legacy {
 				}
 
 				if (pt is RichSpecial) {
-					if (!traversingSpecialPath) {
+					if (!traversingOffMeshLink) {
 						StartCoroutine(TraverseSpecial(pt as RichSpecial));
 					}
 				}
@@ -250,9 +250,8 @@ namespace Pathfinding.Legacy {
 				}
 			}
 
-			var pos = tr.position;
-			realVelocity = Time.deltaTime > 0 ? (pos - prevPosition) / Time.deltaTime : Vector3.zero;
-			prevPosition = pos;
+			UpdateVelocity();
+			lastDeltaTime = Time.deltaTime;
 		}
 
 		new Vector3 RaycastPosition (Vector3 position, float lasty) {
@@ -261,7 +260,6 @@ namespace Pathfinding.Legacy {
 				float up = Mathf.Max(centerOffset, lasty-position.y+centerOffset);
 
 				if (Physics.Raycast(position+Vector3.up*up, Vector3.down, out hit, up, groundMask)) {
-					//Debug.DrawRay (tr.position+Vector3.up*centerOffset,Vector3.down*centerOffset, Color.red);
 					if (hit.distance < up) {
 						//grounded
 						position = hit.point;//.up * -(hit.distance-centerOffset);
@@ -286,54 +284,6 @@ namespace Pathfinding.Legacy {
 				return Mathf.Abs(eul.y-trot.y) < 5f;
 			}
 			return false;
-		}
-
-		protected override IEnumerator TraverseSpecial (RichSpecial rs) {
-			traversingSpecialPath = true;
-			velocity = Vector3.zero;
-
-			var al = rs.nodeLink as AnimationLink;
-			if (al == null) {
-				Debug.LogError("Unhandled RichSpecial");
-				yield break;
-			}
-
-			//Rotate character to face the correct direction
-			while (!RotateTowards(rs.first.forward)) yield return null;
-
-			//Reposition
-			tr.parent.position = tr.position;
-
-			tr.parent.rotation = tr.rotation;
-			tr.localPosition = Vector3.zero;
-			tr.localRotation = Quaternion.identity;
-
-			//Set up animation speeds
-			if (rs.reverse && al.reverseAnim) {
-				anim[al.clip].speed = -al.animSpeed;
-				anim[al.clip].normalizedTime = 1;
-				anim.Play(al.clip);
-				anim.Sample();
-			} else {
-				anim[al.clip].speed = al.animSpeed;
-				anim.Rewind(al.clip);
-				anim.Play(al.clip);
-			}
-
-			//Fix required for animations in reverse direction
-			tr.parent.position -= tr.position-tr.parent.position;
-
-			//Wait for the animation to finish
-			yield return new WaitForSeconds(Mathf.Abs(anim[al.clip].length/al.animSpeed));
-
-			traversingSpecialPath = false;
-			NextPart();
-
-			//If a path completed during the time we traversed the special connection, we need to recalculate it
-			if (delayUpdatePath) {
-				delayUpdatePath = false;
-				UpdatePath();
-			}
 		}
 	}
 }

@@ -1899,9 +1899,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 225}
   - 114: {fileID: 527}
-  - 114: {fileID: 528}
+  - 114: {fileID: 112}
+  - 114: {fileID: 111}
   - 143: {fileID: 521}
   - 114: {fileID: 529}
+  - 114: {fileID: 110}
   m_Layer: 2
   m_Name: Bot
   m_TagString: Untagged
@@ -1909,6 +1911,65 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 128}
+--- !u!114 &111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8503d71a898994d3288ce1708e2707fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  anim: {fileID: 517}
+  sleepVelocity: .200000003
+  animationSpeed: .400000006
+  endOfPathEffect: {fileID: 100000, guid: 441e67a4721e749f0bca9581956f2729, type: 2}
+--- !u!114 &112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  repathRate: 0
+  canSearch: 1
+  canMove: 1
+  maxSpeed: 4
+  gravity: {x: NaN, y: NaN, z: NaN}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffset: 1
+  rotationIn2D: 0
+  targetCompatibility: {fileID: 0}
+  rotationSpeed: 360
+  slowdownDistance: .600000024
+  pickNextWaypointDist: 2
+  endReachedDistance: .100000001
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
 --- !u!4 &121
 Transform:
   m_ObjectHideFlags: 0
@@ -7637,7 +7698,6 @@ MonoBehaviour:
   data:
     dataString: UEsDBBQAAAgIAAAIIewQ0qVedgIAAFgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFVNtu2kAQ/RXk56YyhITQtxaatBUhKG7VhyoPw3psr1jvWnspkIh/z+zaxBuoVIRYc87M7FzO+CURsEc9U07a5NNg9GGQ1KhLzBqQjyBLJDD9eEUwq0ADs6i/IS8rG/DrdOo/xIJpkNlHsFwRMySEG1Wj1Zx9lqUIYQh0khdK11/zEmfKWENwAcIgUVpZ7y0Jehkku85h353P/hwcfB4oKYn/WTnJBNQN5hl/xt54mB7N6SkYSpVjZ9PVqYTgpksksfvGU0nWVKgxIT7nQHWFDHy3qmM3hrHvQ1EYPKIa9nOuqT1t0OSLspWPVIPZtKn9BeH8NaOQUhvy/oy9uAp0oVX9NoO2IFtxtnmEPQNjo5bG8LxPexj6swWxgbXA3xXKpbrTpIA88nUGR/Po/1tpswqZT8xqh2/JnoCuOZ/PsJ/PIRS/mwler0PfL1sgEyp0e+p9UNNkvlPGQRWmi0CoT+KXwZ9QxvLpiFuujSWqMwdn1YLLzZ3meWx9xOfc2AWvedtKLwdfzlo57a2TW3rwk2LOzpSWGNCuxgYlCLtf0bU2nnh6zkUXnzC3tFHqOJOOO+7LiUuAe/s0PaFWattP1+APVzcrxaXNEDSronimUtt7NNWDs4JL7CvyxJKaPlNStmo1/3DLnC6ARW4Wd9ZpnIOFsDKUE8kq1pKhNgYP6YTwCg5V+OB/qAr/fWpfMHSvCHCyVDJs27vzyQundDx/vxfJzXqYs2kK42J8OZ6y8UVxyYprnLCrdLKeTG5GSVgcLqnnIFZt07pRkeJkX4ukJfERF/6liPnA64Z+oAkLm2vY3vHnWkUy4LJQGdOI8qGNFIo+vAJQSwMEFAAACAgAAAgh7G7hdEs0AAAANwAAABIAJABncmFwaDBfZWRpdG9yLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVsrJT85OTVGyUigpKk3VUVAqzsgvd60oKUoECqUl5hSDxAoyy/JLgHwl59S8ktQipVoAUEsDBBQAAAgIAAAIIeweW/5vcQAAAHwAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0DPQUVBKL0osyCgGChiCOKWZKSB2tJJFkmFKsqVBokmaibGJZbKJbppxcppZqnmyqYF5krm5hZFSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nk9iZWqRe1FmijvIfKXYWgBQSwECLQAUAAAICAAACCHsENKlXnYCAABYBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsbuF0SzQAAAA3AAAAEgAkAAAAAAAAAAAAAADDAgAAZ3JhcGgwX2VkaXRvci5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7B5b/m9xAAAAfAAAAAkAJAAAAAAAAAAAAAAASwMAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAwADABwBAAAHBAAAAAA=
     upgradeData: 
-    data_backup: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
@@ -7733,35 +7793,7 @@ MonoBehaviour:
       m_Bits: 4294967295
     useGraphRaycasting: 1
   traversableTags: -1
-  traversableTagsCompatibility:
-    tagsChange: -1
-    tagsSet: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
---- !u!114 &528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f35b84b127b849e38b74966118e7e0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  repathRate: 0
-  target: {fileID: 128}
-  canSearch: 1
-  canMove: 1
-  speed: 4
-  rotationSpeed: 360
-  slowdownDistance: .600000024
-  pickNextWaypointDist: 2
-  endReachedDistance: .100000001
-  anim: {fileID: 517}
-  sleepVelocity: .200000003
-  animationSpeed: .400000006
-  endOfPathEffect: {fileID: 100000, guid: c40b3320702bd4573bff266a0c4a594c, type: 2}
 --- !u!114 &529
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -747,7 +747,7 @@ Transform:
   - {fileID: 788847251}
   - {fileID: 434752738}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
 --- !u!4 &70
 Transform:
   m_ObjectHideFlags: 0
@@ -759,7 +759,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!4 &71
 Transform:
   m_ObjectHideFlags: 0
@@ -771,7 +771,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &72
 Transform:
   m_ObjectHideFlags: 0
@@ -779,11 +779,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 21}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.22440529, y: 7.51374817, z: -16.9242821}
+  m_LocalPosition: {x: -7.61999989, y: 5.5, z: -17.7900009}
   m_LocalScale: {x: .699999988, y: .699999988, z: .699999988}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!4 &73
 Transform:
   m_ObjectHideFlags: 0
@@ -2560,7 +2560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIezxMul06AEAAKsDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFtUsFymzAU/BUP55oRBgz0WCeTHuq4Azlk0unhgR6giZBcIWLHmfx7JRAJnvYkaVe7etr33ryqBQWVRpUDZUPvfV0RP/6y8ioptBzUHs63Skll8I1FkfOCXXC8FhjgBPwZSo7fkTWtdrdmcMdZV344dnAuuDxabUim8y1t8AeKRrdWOYJM5NgwKdwrocGQMi3VA+PowGCTGlg74NEgEUkWyJMVphYZerQ6+60aeI8GUsjxBYS+U3Bsi0HVUOFeUuvr3ch7qXP8MzCFnr0LvUnGOO4k54yiujKayT327fiEVsMV8YBKARP/YxQuFZWzz2f+BjUwbr86JdU/m/3bynsBPthK18Hq3X4Ymv3E/fptj9N7BXTHj6xsgEpq0CbTyeNsO2LQV7de7Dra1VJVSL/JQdB+h8LYfSrWsZ+QcBMEThn6cZySKHQG6yDwUxJHWRr8Y+UqcUYR8bcpmW1SfxsEEUmdTWjOySZMR4++lSeb7WHQnAn8jMsS96ZlOykEVvZny77MMtfbBSMQFPa6MEvVHgR/fXxasM3A6HXKXkYpDbOSAI2yckuidRmGGVJI4gximtSRNxbKBNMM+E8UwPUcq5n0RecFdKNjjpXp8Th7dsCogtMdu3RyMQxM1LKozICIw2QxFvj+F1BLAwQUAAAICAAACCHsydLiPe0AAACeAQAACwAkAGdyYXBoMS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BbY/BbsIwDIZfpcp5SLC267QzGsdVsBdwU5dapEkVJ0CLePclwGgn7eTkk//P9kVYY5z4SLRX6iURjGBl+w37CXVwXhM70BIDXAaiqCPH4XNJxPnBhkcdY02u4WVhkMDR7azHADzj67psByYZww0ojti1JA/bZ/N/eAs1+ZhZRS9Kb5mOOJk74MN9nSMoj88VTO/CqiN+GrvrwTJuLPTtbMjeU/03KIoMZL3M8qJ5l5gWzaLKi9VbWkAOUFV1loqbmjQ5AlWiBuV+jzc96pldQ3dTloa0u48OtLZw2tDYGZ4OIN2YnbSI+mumuP4AUEsDBBQAAAgIAAAIIezlm1DykgAAALgAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BTY7BDoIwEER/hfQspNota/0Bb4Z4NRy2bAs9UAhFE2P8d2n04G1m3mQyL/FwSwpTFKcCKlnJXSH6heYhbcEhm3vgrG/CMLMyVhKDsbWE0iplHBNqQ5rRg9jqCNSxBI3+2DmFvrQa97VC0kTWMijRbq31ObsLje473NA6+BA5xL66uo7Ses4P8tw/aqYQf6R9fwBQSwECLQAUAAAICAAACCHs8TLpdOgBAACrAwAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHsydLiPe0AAACeAQAACwAkAAAAAAAAAAAAAAA1AgAAZ3JhcGgxLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHs5ZtQ8pIAAAC4AAAACQAkAAAAAAAAAAAAAABvAwAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAADAAMAFQEAAEwEAAAAAA==
+    dataString: UEsDBBQAAAgIAAAIIexoUa8V6QEAAKoDAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFtkkFzmzAQhf+Kh3PNCAMGeqyTSQ913IEcMun0sEYLaCIkV4jYcSb/vRKIGE9yErzV+yS93TevbEBBqVHlQFnfed8XxI+/LbxSCi17tYXTrVJSGX1lVeS8YGcctgVGOAJ/hj3Hn8jqRrtdk7jhrN1/EFs4FVwerDck4/8trfEXilo31jmITORYMyncKaHRkDIt1QPj6MRglRpZO+HRKBFJZsqTNaZW6Tu0PvusCniHRlLI8QWEvlNwaIpeVVDiVlLL9W7kvdQ5/uuZQs/uhc4kY4gbyTmjqK5AU3GLXTMcoVV/VXhApYCJryoK547S4fOpfoMaGLdPHZPqns3328J7Ad7bmy7jxbt9MNTbsfbnr/0dzyugPXxkZQNUUoM2mY6Mk+2IUV/derbrgKukKpH+kL2g3QaFwV0cy9hPSLgKAucM/ThOSRQ6wDII/JTEUZYGn1DuJg4UEX+dkgmT+usgiEjqMKH5T1ZhOjC6Rh5ttrtecybwEpct3JuWbaQQWNqXzfsy2VxvLzaBoLDThVnKZif46+PTzFb3jF6H7GWU0jDbE6BRtl+TaLkPwwwpJHEGMU2qyBvuyQTTDPhvFMD1lKoZ9FnjBbQDMcfStHgYPTtfVMHxjp1bOZsFJipZlGY+xG5EDBd8/w9QSwMEFAAACAgAAAgh7MnS4j3tAAAAngEAAAsAJABncmFwaDEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAW2PwW7CMAyGX6XKeUiwtuu0MxrHVbAXcFOXWqRJFSdAi3j3JcBoJ+3k5JP/z/ZFWGOc+Ei0V+olEYxgZfsN+wl1cF4TO9ASA1wGoqgjx+FzScT5wYZHHWNNruFlYZDA0e2sxwA84+u6bAcmGcMNKI7YtSQP22fzf3gLNfmYWUUvSm+ZjjiZO+DDfZ0jKI/PFUzvwqojfhq768Eybiz07WzI3lP9NyiKDGS9zPKieZeYFs2iyovVW1pADlBVdZaKm5o0OQJVogblfo83PeqZXUN3U5aGtLuPDrS2cNrQ2BmeDiDdmJ20iPprprj+AFBLAwQUAAAICAAACCHsLYnyipIAAAC4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAU2OwQ6CMBBEf4X0LKTYLWv9AW+GeDUctmwLPVgIRRNj/Hdp9OBtZt5kMi/xcEsKUxTHAqq6krtCDAvNY9qCfTb3wFlfhWFmZawkBmMbCaVVyjgm1IY0owex1RGoZwka/aF3Cn1pNdaNQtJE1jIo0W2t9Tm7M93cd7ildfQhcohDdXE9pfWUH+S5f9ROIf5I9/4AUEsBAi0AFAAACAgAAAgh7GhRrxXpAQAAqgMAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7MnS4j3tAAAAngEAAAsAJAAAAAAAAAAAAAAANgIAAGdyYXBoMS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7C2J8oqSAAAAuAAAAAkAJAAAAAAAAAAAAAAAcAMAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAwADABUBAABNBAAAAAA=
     upgradeData: 
     data_backup: 
     file_cachedStartup: {fileID: 0}
@@ -2661,7 +2661,7 @@ GameObject:
   - 4: {fileID: 77946281}
   - 33: {fileID: 77946283}
   - 23: {fileID: 77946282}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: minebot_back_lowerleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2767,6 +2767,93 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1988372205}
   m_RootOrder: 0
+--- !u!1 &160576748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 160576749}
+  - 222: {fileID: 160576752}
+  - 114: {fileID: 160576751}
+  - 114: {fileID: 160576750}
+  m_Layer: 0
+  m_Name: Header
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &160576749
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160576748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1771698319}
+  m_RootOrder: 1
+  m_AnchorMin: {x: .5, y: 1}
+  m_AnchorMax: {x: .5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -10}
+  m_SizeDelta: {x: 200, y: 20}
+  m_Pivot: {x: .5, y: 1}
+--- !u!114 &160576750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160576748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .384000003}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &160576751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160576748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Double click to move the target
+--- !u!222 &160576752
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 160576748}
 --- !u!1 &213274239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2777,7 +2864,7 @@ GameObject:
   - 4: {fileID: 213274240}
   - 33: {fileID: 213274242}
   - 23: {fileID: 213274241}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2839,7 +2926,7 @@ GameObject:
   - 4: {fileID: 367139136}
   - 33: {fileID: 367139138}
   - 23: {fileID: 367139137}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: H2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2901,7 +2988,7 @@ GameObject:
   - 4: {fileID: 385721120}
   - 33: {fileID: 385721119}
   - 23: {fileID: 385721118}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: minebot_right_upperleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2964,7 +3051,7 @@ GameObject:
   - 4: {fileID: 389962021}
   - 33: {fileID: 389962023}
   - 23: {fileID: 389962022}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: H1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3103,7 +3190,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 432605672}
   - 111: {fileID: 432605673}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: mine_bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3186,8 +3273,10 @@ GameObject:
   - 4: {fileID: 617778279}
   - 111: {fileID: 617778282}
   - 114: {fileID: 617778281}
+  - 114: {fileID: 617778283}
   - 114: {fileID: 617778280}
-  m_Layer: 4
+  - 114: {fileID: 617778284}
+  m_Layer: 2
   m_Name: Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3222,25 +3311,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 72}
-  repeatedlySearchPaths: 1
   repathRate: .5
+  canSearch: 1
+  canMove: 1
   maxSpeed: 5
+  gravity: {x: 0, y: -9.81999969, z: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffset: 1.49000001
+  rotationIn2D: 0
+  targetCompatibility: {fileID: 0}
   acceleration: 30
   rotationSpeed: 500
   slowdownTime: .300000012
   endReachedDistance: .200000003
   wallForce: 5
   wallDist: 1
-  gravity: {x: 0, y: -9.81999969, z: 0}
-  raycastingForGroundPlacement: 1
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffset: 1.49000001
   funnelSimplification: 0
-  anim: {fileID: 617778282}
   slowWhenNotFacingTarget: 1
+  animCompatibility: {fileID: 0}
 --- !u!114 &617778281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3265,9 +3355,6 @@ MonoBehaviour:
       m_Bits: 4294967295
     useGraphRaycasting: 0
   traversableTags: -1
-  traversableTagsCompatibility:
-    tagsChange: -1
-    tagsSet: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!111 &617778282
 Animation:
@@ -3285,6 +3372,31 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &617778283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617778278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 72}
+--- !u!114 &617778284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617778278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81825518f1bed49bda1223459d4bdf99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  anim: {fileID: 617778282}
 --- !u!1 &651591058
 GameObject:
   m_ObjectHideFlags: 0
@@ -3322,7 +3434,7 @@ GameObject:
   - 4: {fileID: 656834630}
   - 33: {fileID: 656834632}
   - 23: {fileID: 656834631}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: minebot_right_lowerleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3384,7 +3496,7 @@ GameObject:
   - 4: {fileID: 775725896}
   - 33: {fileID: 775725898}
   - 23: {fileID: 775725897}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: minebot_left_upperleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3843,6 +3955,46 @@ Transform:
   - {fileID: 999431235}
   m_Father: {fileID: 434752738}
   m_RootOrder: 3
+--- !u!1 &954430316
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 954430317}
+  - 114: {fileID: 954430318}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &954430317
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 954430316}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.69361067, y: -1.21112633, z: -9.86049461}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+--- !u!114 &954430318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 954430316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09480ce70711048b2b91de70c77b0ed8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
 --- !u!1 &999431234
 GameObject:
   m_ObjectHideFlags: 0
@@ -4007,7 +4159,7 @@ GameObject:
   - 4: {fileID: 1094911143}
   - 33: {fileID: 1094911145}
   - 23: {fileID: 1094911144}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: minebot_front_upperleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4060,6 +4212,112 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1094911142}
   m_Mesh: {fileID: 4300008, guid: caeffedc34d9f4161b7694ad0d84bbd3, type: 3}
+--- !u!1 &1106103998
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1106103999}
+  - 222: {fileID: 1106104001}
+  - 114: {fileID: 1106104000}
+  - 114: {fileID: 1106104002}
+  m_Layer: 0
+  m_Name: Description
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1106103999
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106103998}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1771698319}
+  m_RootOrder: 0
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 10, y: -10}
+  m_SizeDelta: {x: 410, y: 600}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1106104000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106103998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'This example scene shows a recast graph setup with a few links.
+
+
+    The character, which is in the "Bot" GameObject will move to the "Target" GameObject
+    which you can move by double-clicking.
+
+
+    This example uses the RichAI movement script. It is very similar to the AIPath
+    script but the RichAI movement script is specifically written for recast/navmesh
+    graphs and has support for off-mesh links while the AIPath movement script is
+    more generic and can handle all types of graphs.
+
+
+    You will notice that the character plays an animation when traversing the off-mesh
+    links. This behavior is controlled by the AnimationLinkTraverser script on the
+    "Bot" GameObject. This script is just an example script. For many games you will
+    likely want to add in some custom behaviors. This is easy to do as separate scripts
+    can get full control over the character when it traverses off-mesh links by registering
+    to the RichAI.onTraverseOffMeshLink event. Take a look at the documentation for
+    more info.'
+--- !u!222 &1106104001
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106103998}
+--- !u!114 &1106104002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1106103998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1573420865, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: .384000003}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1139094207
 GameObject:
   m_ObjectHideFlags: 0
@@ -4111,84 +4369,6 @@ MonoBehaviour:
   referenceMesh: {fileID: 0}
   sequence: []
   boneRoot: bn_COG_Root
---- !u!1 &1203303154
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1203303157}
-  - 23: {fileID: 1203303156}
-  - 132: {fileID: 1203303155}
-  m_Layer: 0
-  m_Name: Description
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!132 &1203303155
-GUIText:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1203303154}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Text: Double click to move the target
-  m_Anchor: 1
-  m_Alignment: 1
-  m_PixelOffset: {x: -5, y: -5}
-  m_LineSpacing: 1
-  m_TabSize: 4
-  m_Font: {fileID: 0}
-  m_Material: {fileID: 0}
-  m_FontSize: 0
-  m_FontStyle: 0
-  m_Color:
-    serializedVersion: 2
-    rgba: 4278190080
-  m_PixelCorrect: 1
-  m_RichText: 1
---- !u!23 &1203303156
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1203303154}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!4 &1203303157
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1203303154}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .5, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
 --- !u!1 &1234050528
 GameObject:
   m_ObjectHideFlags: 0
@@ -4350,7 +4530,7 @@ GameObject:
   - 4: {fileID: 1513192370}
   - 33: {fileID: 1513192372}
   - 23: {fileID: 1513192371}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: minebot_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4463,7 +4643,7 @@ GameObject:
   - 4: {fileID: 1645931944}
   - 33: {fileID: 1645931946}
   - 23: {fileID: 1645931945}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: minebot_left_lowerleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4525,7 +4705,7 @@ GameObject:
   - 4: {fileID: 1660041811}
   - 33: {fileID: 1660041813}
   - 23: {fileID: 1660041812}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: minebot_front_lowerleg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4577,6 +4757,58 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1660041810}
   m_Mesh: {fileID: 4300018, guid: caeffedc34d9f4161b7694ad0d84bbd3, type: 3}
+--- !u!1 &1771698317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1771698319}
+  - 223: {fileID: 1771698318}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!223 &1771698318
+Canvas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1771698317}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 1
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!224 &1771698319
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1771698317}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1106103999}
+  - {fileID: 160576749}
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1919890647
 GameObject:
   m_ObjectHideFlags: 0
@@ -4587,7 +4819,7 @@ GameObject:
   - 4: {fileID: 1919890648}
   - 33: {fileID: 1919890650}
   - 23: {fileID: 1919890649}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: minebot_front_upperleg 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4855,7 +5087,7 @@ GameObject:
   - 4: {fileID: 2097727595}
   - 33: {fileID: 2097727597}
   - 23: {fileID: 2097727596}
-  m_Layer: 4
+  m_Layer: 2
   m_Name: minebot_main
   m_TagString: Untagged
   m_Icon: {fileID: 0}

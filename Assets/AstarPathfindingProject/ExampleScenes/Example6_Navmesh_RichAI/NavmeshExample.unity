@@ -179,6 +179,7 @@ GameObject:
   - 143: {fileID: 40}
   - 114: {fileID: 47}
   - 114: {fileID: 13}
+  - 114: {fileID: 17}
   m_Layer: 1
   m_Name: Player
   m_TagString: Untagged
@@ -198,25 +199,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 16}
-  repeatedlySearchPaths: 0
   repathRate: .5
+  canSearch: 0
+  canMove: 1
   maxSpeed: 2.13000011
+  gravity: {x: 0, y: -9.81999969, z: 0}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffset: 1
+  rotationIn2D: 0
+  targetCompatibility: {fileID: 0}
   acceleration: 90
   rotationSpeed: 360
   slowdownTime: .5
   endReachedDistance: .00999999978
   wallForce: 10
   wallDist: 1
-  gravity: {x: 0, y: -9.81999969, z: 0}
-  raycastingForGroundPlacement: 0
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffset: 1
   funnelSimplification: 0
-  anim: {fileID: 0}
   slowWhenNotFacingTarget: 1
+  animCompatibility: {fileID: 0}
 --- !u!1 &14
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +263,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &17
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 12}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 16}
 --- !u!4 &18
 Transform:
   m_ObjectHideFlags: 0
@@ -615,7 +630,6 @@ MonoBehaviour:
   data:
     dataString: UEsDBBQAAAgIAAAIIeyLZy3b+gAAALQBAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFkE9PwzAMxb9KlTNILS205QiHnViRekHcTOKskTJnyp+Nddp3J2k3tTdOz/bzc37KhTkTLMcPdAN7zSho/ZAxI6VDH/tLxn6j5HF2vumYNLvGyhoPXhn6b89x0Bi7ItbSxMfEmwkkXK9GXLJFfk9X93gczQcGc0qAXfBaUcp4G/BmbI3Ad0OEPLG4aErQDlexPlgJHFcOIVh0vo/Ch470+et75e6CEjPXEXRIOZbnZfnzJIqibhpe5s1j1baVfKmf64LXoi05m0AVKa9AfyKB9vePMAekBZlgP13cwjGxbSwcBhbnwsJpo8a9ccuuIml6bhGpm29MhNc/UEsDBBQAAAgIAAAIIewMk0S8bwAAAHoAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0DPQUVBKL0osyCgGChiCOKWZKSB2tJKBgbFxklGKoaG5hUWysYGFromlpUmambmpuWGyeYqlcbJSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nl9imW9qcYY7yHSl2FoAUEsBAi0AFAAACAgAAAgh7ItnLdv6AAAAtAEAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7AyTRLxvAAAAegAAAAkAJAAAAAAAAAAAAAAARwEAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAABAgAAAAA=
     upgradeData: 
-    data_backup: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
     cacheStartup: 0
@@ -711,9 +725,6 @@ MonoBehaviour:
       m_Bits: 4294967295
     useGraphRaycasting: 0
   traversableTags: -1
-  traversableTagsCompatibility:
-    tagsChange: -1
-    tagsSet: -1
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!196 &48
 NavMeshSettings:

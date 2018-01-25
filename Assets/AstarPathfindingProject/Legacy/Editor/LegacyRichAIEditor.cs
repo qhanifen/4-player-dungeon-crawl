@@ -3,9 +3,9 @@ using UnityEditor;
 namespace Pathfinding.Legacy {
 	[CustomEditor(typeof(LegacyRichAI))]
 	[CanEditMultipleObjects]
-	public class LegacyRichAIEditor : Editor {
-		public override void OnInspectorGUI () {
-			base.OnInspectorGUI();
+	public class LegacyRichAIEditor : BaseAIEditor {
+		protected override void Inspector () {
+			base.Inspector();
 			LegacyEditorHelper.UpgradeDialog(targets, typeof(RichAI));
 		}
 	}

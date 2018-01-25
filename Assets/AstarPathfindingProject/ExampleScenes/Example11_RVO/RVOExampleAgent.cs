@@ -8,7 +8,7 @@ namespace Pathfinding.Examples {
 	 * Primarily intended for the example scenes.
 	 * You can use the AIPath or RichAI movement scripts in your own projects.
 	 *
-	 * \see #AIPath
+	 * \see #Pathfinding.AIPath
 	 * \see #Pathfinding.RichAI
 	 * \see #Pathfinding.RVO.RVOController
 	 */

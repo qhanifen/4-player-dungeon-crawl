@@ -47,15 +47,11 @@ namespace Pathfinding.Examples {
 			base.Start();
 		}
 
-		public override void UpdatePath () {
+		protected override void CalculatePathRequestEndpoints (out Vector3 start, out Vector3 end) {
 			RefreshTransform();
-			CancelCurrentPathRequest();
-
-			waitingForPathCalc = true;
-			lastRepath = Time.time;
-
-			// Convert our current position and the target position to positions on the graph
-			seeker.StartPath(graph.transformation.InverseTransform(tr.position), graph.transformation.InverseTransform(target.position));
+			base.CalculatePathRequestEndpoints(out start, out end);
+			start = graph.transformation.InverseTransform(start);
+			end = graph.transformation.InverseTransform(end);
 		}
 
 		protected override void Update () {

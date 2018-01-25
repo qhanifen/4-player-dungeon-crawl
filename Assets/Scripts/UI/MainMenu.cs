@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
 {
     IList<Player> players;
     public List<PlayerSelectMenu> playerMenus;
+    public static bool[] playerReady = { false, false, false, false };
     
     public enum MenuState
     {

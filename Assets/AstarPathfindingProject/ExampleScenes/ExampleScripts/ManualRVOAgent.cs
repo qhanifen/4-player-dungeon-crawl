@@ -1,32 +1,35 @@
 using UnityEngine;
 using System.Collections;
-using Pathfinding;
-using Pathfinding.RVO;
 
-/** Player controlled character which RVO agents will avoid.
- * This script is intended to show how you can make NPCs avoid
- * a player controlled (or otherwise externally controlled) character.
- *
- * \see Pathfinding.RVO.RVOController
- */
-[RequireComponent(typeof(RVOController))]
-[HelpURL("http://arongranberg.com/astar/docs/class_manual_r_v_o_agent.php")]
-public class ManualRVOAgent : MonoBehaviour {
-	RVOController rvo;
+namespace Pathfinding.Examples {
+	using Pathfinding.RVO;
 
-	public float speed = 1;
+	/** Player controlled character which RVO agents will avoid.
+	 * This script is intended to show how you can make NPCs avoid
+	 * a player controlled (or otherwise externally controlled) character.
+	 *
+	 * \see Pathfinding.RVO.RVOController
+	 */
+	[RequireComponent(typeof(RVOController))]
+	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_examples_1_1_manual_r_v_o_agent.php")]
+	public class ManualRVOAgent : MonoBehaviour {
+		RVOController rvo;
 
-	void Awake () {
-		rvo = GetComponent<RVOController>();
-	}
+		public float speed = 1;
 
-	void Update () {
-		var x = Input.GetAxis("Horizontal");
-		var y = Input.GetAxis("Vertical");
+		void Awake () {
+			rvo = GetComponent<RVOController>();
+		}
 
-		var v = new Vector3(x, 0, y) * speed;
+		void Update () {
+			var x = Input.GetAxis("Horizontal");
+			var y = Input.GetAxis("Vertical");
 
-		rvo.ForceSetVelocity(v);
-		transform.position += v * Time.deltaTime;
+			var v = new Vector3(x, 0, y) * speed;
+
+			// Override the RVOController's velocity. This will disable local avoidance calculations for one simulation step.
+			rvo.velocity = v;
+			transform.position += v * Time.deltaTime;
+		}
 	}
 }
