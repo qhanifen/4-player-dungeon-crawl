@@ -234,7 +234,7 @@ ModelImporter:
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'RigRLegFoot1'
       is inbetween humanoid transforms and has rotation animation that will be discarded.\n"
     animationRetargetingWarnings: 
-    animationDoRetargetingWarnings: 0
+    animationDoRetargetingWarnings: 1
     animationCompression: 3
     animationRotationError: 0.5
     animationPositionError: 0.5
